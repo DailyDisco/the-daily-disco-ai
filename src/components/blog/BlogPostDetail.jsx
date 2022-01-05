@@ -1,15 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 
+const sharedClasses = 'dark:text-white';
+const bodyClasses = 'text-lg text-gray-700';
+
 /* eslint-disable @next/next/no-img-element */
 const BlogPostDetail = ({ post }) => {
   // this gets the parts of the content
   // if the obj exists and if obj.bold exists return text as bold, or italic, or underlined, etc..
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
-
-    const sharedClasses = 'dark:text-white';
-    const bodyClasses = 'text-lg text-gray-700';
 
     if (obj) {
       if (obj.bold) {
@@ -81,7 +81,7 @@ const BlogPostDetail = ({ post }) => {
           <code
             key={index}
             // eslint-disable-next-line no-template-curly-in-string
-            className="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm ${sharedClasses}"
+            className="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm"
           >
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
