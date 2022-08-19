@@ -1,0 +1,29 @@
+.container {
+    /* we are subtracting the navbars height from this */
+    height: calc(100vh - 100px);
+    background-color: #d1411e;
+
+}
+
+.arrowContainer {
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.wrapper {
+    /* full screen */
+    width: 300vw;
+    height: 100%;
+
+}
+
+.imgContainer {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+}
