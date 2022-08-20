@@ -13,6 +13,7 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* here you can edit the height of the navbar quickly */
 .nav-h {
     height: calc(100vh - 66px);
 }
@@ -48,12 +49,14 @@
 .checkbox:checked + .label .ball{
     transform: translateX(16px);
 }
-  
+
+/* this is our logo for night mode slider */
 .fa-moon {
     color: pink;
     font-size: 9px;
 }
-  
+
+/* this is our logo for day mode slider */
 .fa-sun {
     color: yellow;
     font-size: 9px;
