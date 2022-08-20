@@ -38,17 +38,25 @@ const MenuItems = ({ isMobile, active, setActive }) => {
   );
 };
 
-const ButtonGroup = () => {
-  const hasConnected = false;
+const ButtonGroup = ({ setActive, router }) => {
+  const hasConnected = true;
 
   return hasConnected ? (
-    <Button />
-  ) : <Button />;
+    <Button
+      btnName="Create"
+      classStyles="mx-2 rounded-xl"
+      handleClick={() => {
+        setActive('');
+
+        router.push('/create-nft');
+      }}
+    />
+  ) : <Button btnName="Connect" classStyles="mx-2 rounded-xl" handleClick={() => {}} />;
 };
 
 const navbar = () => {
   const { theme, setTheme } = useTheme();
-
+  const router = useRouter();
   const [active, setActive] = useState('Explore NFTs');
 
   return (
@@ -85,7 +93,7 @@ const navbar = () => {
       <div className="md:hidden flex">
         <MenuItems active={active} setActive={setActive} />
         <div className="ml-4">
-          {/* <ButtonGroup /> */}
+          <ButtonGroup setActive={setActive} router={router} />
         </div>
       </div>
     </nav>
