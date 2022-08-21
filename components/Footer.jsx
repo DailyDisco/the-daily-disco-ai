@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flexCenter cursor-pointer">
             {/* Here is the logo for our footer */}
             {/* <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" /> */}
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">DigitalMe</p>
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Let's Play!</p>
           </div>
           <p className="font-poppins dark:text-white text-nft-black font-semibold text-base mt-6">Get the latest updates</p>
           {/* this will be our "your email" input */}
@@ -40,14 +40,14 @@ const Footer = () => {
         </div>
 
         <div className="flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
-          <FooterLinks heading="DigitalMe" items={['Explore', 'How it Works', 'Contact Us']} />
-          <FooterLinks heading="DigitalMe" items={['Help Center', 'Terms of Service', 'Legal', 'Privacy Policy']} />
+          <FooterLinks heading="About Us" items={['Explore', 'How it Works', 'Contact Us']} />
+          <FooterLinks heading="Support" items={['Help Center', 'Terms of Service', 'Legal', 'Privacy Policy']} />
         </div>
       </div>
 
       <div className="flexCenter w-full mt-5 border-t dark:border-nft-black-1 border-nft-gray-1 sm:px-4 px-16">
         <div className="flexBetween flex-row w-full minmd:w-4/5 sm:flex-col mt-7">
-          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-base">DigitalMe, Inc. All Rights Reserved.</p>
+          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-base">Let's Play!, Inc. All Rights Reserved.</p>
           <div className="flex flex-row sm:mt-4">
             {[images.instagram, images.twitter, images.telegram, images.discord].map((image, index) => (
               <div className="mx-2 cursor-pointer" key={index}>

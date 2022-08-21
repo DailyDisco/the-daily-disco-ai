@@ -5,12 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* use this to change the banner and button backgrounds */
 .nft-gradient {
-   background: linear-gradient(101.12deg, #EB1484 27.35%, #C91CC3 99.99%, #C81CC5 100%, #C81CC5 100%);
+   background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .white-bg {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(238,174,202);
 }
 
 /* here you can edit the height of the navbar quickly */

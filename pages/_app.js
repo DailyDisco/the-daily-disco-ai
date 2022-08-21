@@ -11,7 +11,10 @@ const MyApp = ({ Component, pageProps }) => (
       {/* <Auth /> */}
       <Navbar />
       {/* <Cart /> */}
-      <Component {...pageProps} />
+      {/* this next line is to divide the navigation bar from the rest of the page */}
+      <div className="pt-65">
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </div>
     <Script src="https://kit.fontawesome.com/2437c99726.js" crossorigin="anonymous" />

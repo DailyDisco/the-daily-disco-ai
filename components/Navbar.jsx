@@ -67,7 +67,7 @@ const navbar = () => {
           <div className="flexCenter md:hidden cursor-pointer" onClick={() => {}}>
             {/* change logo here */}
             {/* <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" /> */}
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">DigitalMe</p>
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Let's Play!</p>
           </div>
         </Link>
         <Link href="/">
