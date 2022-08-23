@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 .env
+/personal-blog/node_modules
+/personal-blog
 
 # testing
 /coverage
@@ -40,3 +42,5 @@ next-env.d.ts
 
 # Contentlayer
 .contentlayer
+
+# Sanity

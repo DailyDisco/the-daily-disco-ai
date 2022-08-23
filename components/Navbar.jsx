@@ -11,15 +11,17 @@ import { Button } from '/';
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
     switch (i) {
-      case 0: return '/about';
-      case 1: return '/';
-      case 2: return '/';
+      case 0: return '/';
+      case 1: return '/about';
+      case 2: return '/blog';
+      case 3: return '/reviews';
       default: return '/';
     }
   };
   return (
+
     <ul className={`list-none flexCenter flex-row ${isMobile && 'flex-col h-full'}`}>
-      {['About', 'Blog', 'Reviews'].map((item, i) => (
+      {['Home', 'About', 'Blog', 'Reviews'].map((item, i) => (
         <li
           key={i}
           onClick={() => {
@@ -66,14 +68,15 @@ const navbar = () => {
         <Link href="/">
           <div className="flexCenter md:hidden cursor-pointer" onClick={() => {}}>
             {/* change logo here */}
-            {/* <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" /> */}
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Let's Play!</p>
+            <Image src={images.D} objectFit="contain" width={32} height={32} alt="logo" />
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">The Daily Disco</p>
           </div>
         </Link>
         <Link href="/">
-          <div className="hidden md:flex" onClick={() => {}}>
+          <div className="hidden md:flex cursor-pointer" onClick={() => {}}>
             {/* change logo here */}
-            {/* <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" /> */}
+            <Image src={images.D} objectFit="contain" width={32} height={32} alt="logo" />
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Daily Disco</p>
           </div>
         </Link>
       </div>

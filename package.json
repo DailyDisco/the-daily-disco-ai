@@ -12,6 +12,7 @@
     "@alan-ai/alan-sdk-web": "^1.8.34",
     "@babel/core": "^7.18.10",
     "@emailjs/browser": "^3.6.2",
+    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^3.3.3",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.35.0",

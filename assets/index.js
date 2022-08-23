@@ -37,8 +37,12 @@ import left from './left.png';
 import headerbg from './headerbg.png';
 import loader from './loader.gif';
 import arrow from './arrow.png';
+import theDailyDisco from './theDailyDisco.svg';
+import D from './D.png';
 
 export default {
+  D,
+  theDailyDisco,
   heartOutline,
   heart,
   logo,
