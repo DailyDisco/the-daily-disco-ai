@@ -1,4 +1,4 @@
-import Head from 'next/head';
+// import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';
 import Router from 'next/router';
