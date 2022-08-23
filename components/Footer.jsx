@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 import images from '../assets';
+// eslint-disable-next-line import/no-cycle
 import { Button } from '.';
 
 const FooterLinks = ({ heading, items }) => (

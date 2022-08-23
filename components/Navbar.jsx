@@ -6,6 +6,7 @@ import Image from 'next/image'; // this is a component
 import Link from 'next/link'; // Link is a component that is used to link to other pages
 
 import images from '../assets';
+// eslint-disable-next-line import/no-cycle
 import { Button } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
