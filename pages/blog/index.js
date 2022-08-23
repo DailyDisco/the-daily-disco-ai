@@ -56,6 +56,7 @@ export default function blog({ posts }) {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 export const getServerSideProps = async (pageContext) => {
   const query = encodeURIComponent('*[_type == "post"]');
   const url = `https://p1ozl58j.api.sanity.io/v1/data/query/production?query=${query}`;
