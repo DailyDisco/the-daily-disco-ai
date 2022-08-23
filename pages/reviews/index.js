@@ -1,7 +1,6 @@
-// No React import needed up here! 😳
-import { Banner } from '../components';
+import { Banner } from '../../components';
 
-export default function about() {
+export default function reviews() {
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-4/5">
@@ -15,3 +14,4 @@ export default function about() {
     </div>
   );
 }
+

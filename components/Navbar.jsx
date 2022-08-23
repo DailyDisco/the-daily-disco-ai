@@ -11,7 +11,7 @@ import { Button } from '/';
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
     switch (i) {
-      case 0: return '/';
+      case 0: return '/about';
       case 1: return '/';
       case 2: return '/';
       default: return '/';
@@ -19,7 +19,7 @@ const MenuItems = ({ isMobile, active, setActive }) => {
   };
   return (
     <ul className={`list-none flexCenter flex-row ${isMobile && 'flex-col h-full'}`}>
-      {['About', 'Blog', 'Film Reviews'].map((item, i) => (
+      {['About', 'Blog', 'Reviews'].map((item, i) => (
         <li
           key={i}
           onClick={() => {
