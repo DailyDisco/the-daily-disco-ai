@@ -7,4 +7,6 @@ import Loader from './Loader';
 
 import Cart from './Cart';
 
-export { Navbar, Footer, Button, Loader, Cart, Banner };
+import Auth from './Auth';
+
+export { Navbar, Footer, Button, Loader, Cart, Banner, Auth };
