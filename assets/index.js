@@ -39,8 +39,12 @@ import loader from './loader.gif';
 import arrow from './arrow.png';
 import theDailyDisco from './theDailyDisco.svg';
 import D from './D.png';
+import stableDiffusion1 from './stableDiffusion1.png';
+import stableDiffusion2 from './stableDiffusion2.png';
 
 export default {
+  stableDiffusion1,
+  stableDiffusion2,
   D,
   theDailyDisco,
   heartOutline,

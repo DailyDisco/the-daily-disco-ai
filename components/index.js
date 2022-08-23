@@ -11,4 +11,6 @@ import Cart from './Cart';
 
 import Auth from './Auth';
 
-export { Navbar, Footer, Button, Loader, Cart, Banner, Auth };
+import PhotographyCard from './PhotographyCard';
+
+export { Navbar, Footer, Button, Loader, Cart, Banner, Auth, PhotographyCard };
