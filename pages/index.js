@@ -18,7 +18,7 @@ const Home = () => (
           {/* <div>SearchBar</div> */}
 
         </div>
-        <p className="flex-1 mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">Feel free to email us your prompts and we will do our best to best the results for you.</p>
+        <p className="flex-1 mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">Feel free to email us your prompts and we will do our best to post the results for you.</p>
         {/* here we will put the filter */}
         <div className="mt-3 w-full flex flex-wrap justify-start md:justify-center">
           {[1, 2].map((i) => (
