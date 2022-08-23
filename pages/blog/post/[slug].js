@@ -1,7 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import BlockContent from '@sanity/block-content-to-react';
-import { Banner } from '../../../components';
 
 import styles from '../../../styles/Post.module.css';
 
