@@ -11,6 +11,20 @@ export default function about() {
           childStyles="md:text-4xl sm:text-2xl xs=text-xl text-left"
           parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
         />
+        <div className="flex-1 font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold sm:mb-4">
+          <div className="mt-5">
+            <p>
+              The Daily Disco is a place to discover new or different ideas regarding health, tech, and pop culture.
+            </p>
+          </div>
+          <div className="mt-5">
+            <p>We also host a Stable Diffusion gallery. If you'd like your prompt created feel free to email me. We are currently working on integrated user self-input for our site. Sign up for our newsletter if you'd like to know when that's available!</p>
+          </div>
+          <div className="mt-5">
+            <p> Also, if you'd like to create an account with us using your email or your crypto wallet. All prompts you input will be stored and you can begin to comment on posts and reviews!
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

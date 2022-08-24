@@ -60,7 +60,7 @@ const ButtonGroup = ({ setActive, router }) => {
 const navbar = () => {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
-  const [active, setActive] = useState('Explore NFTs');
+  const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
 
   return (
