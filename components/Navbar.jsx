@@ -7,7 +7,7 @@ import Link from 'next/link'; // Link is a component that is used to link to oth
 
 import images from '../assets';
 // eslint-disable-next-line import/no-cycle
-import { Button } from '.';
+// import { Button } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
@@ -59,7 +59,7 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 
 const navbar = () => {
   const { theme, setTheme } = useTheme();
-  const router = useRouter();
+  // const router = useRouter();
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
 
