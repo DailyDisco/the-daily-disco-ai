@@ -137,7 +137,7 @@ const navbar = () => {
             <MenuItems active={active} setActive={setActive} isMobile />
           </div>
           <div className="p-4 border-t dark:border-nft-black-1 border-nft-gray-1">
-            <ButtonGroup setActive={setActive} router={router} />
+            {/* <ButtonGroup setActive={setActive} router={router} /> */}
           </div>
         </div>
         )}
