@@ -41,21 +41,21 @@ const MenuItems = ({ isMobile, active, setActive }) => {
   );
 };
 // the button will show connect when you need to connect your wallet and create when you are signed in
-const ButtonGroup = ({ setActive, router }) => {
-  const hasConnected = true;
+// const ButtonGroup = ({ setActive, router }) => {
+//   const hasConnected = true;
 
-  return hasConnected ? (
-    <Button
-      btnName="Create"
-      classStyles="mx-2 rounded-xl"
-      handleClick={() => {
-        setActive('');
+//   return hasConnected ? (
+//     <Button
+//       btnName="Create"
+//       classStyles="mx-2 rounded-xl"
+//       handleClick={() => {
+//         setActive('');
 
-        router.push('/create-nft');
-      }}
-    />
-  ) : <Button btnName="Connect" classStyles="mx-2 rounded-xl" handleClick={() => {}} />;
-};
+//         router.push('/create-nft');
+//       }}
+//     />
+//   ) : <Button btnName="Connect" classStyles="mx-2 rounded-xl" handleClick={() => {}} />;
+// };
 
 const navbar = () => {
   const { theme, setTheme } = useTheme();
