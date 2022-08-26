@@ -100,7 +100,8 @@ const navbar = () => {
         <div className="md:hidden flex">
           <MenuItems active={active} setActive={setActive} onClick={() => {}} />
           <div className="ml-4">
-            <ButtonGroup setActive={setActive} router={router} />
+            {/* here is the button for connecting your crypto wallet */}
+            {/* <ButtonGroup setActive={setActive} router={router} /> */}
           </div>
         </div>
       </div>
