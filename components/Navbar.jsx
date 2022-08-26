@@ -1,6 +1,6 @@
 // all these next imports are hooks
 import { useState } from 'react'; // useEffect, useContext
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Image from 'next/image'; // this is a component
 import Link from 'next/link'; // Link is a component that is used to link to other pages
