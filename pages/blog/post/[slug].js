@@ -22,7 +22,7 @@ export const Post = ({ title, body, image }) => {
         {/* possible wrap this styles.main class in another div */}
         <div className="styles.main">
           {/* this is our blogs title */}
-          <h1>{title}</h1>
+          <h1 className="flex justify-center font-poppins font-semibold text-3xl mb-3">{title}</h1>
           {/* here we work with our blogs images */}
           {imageUrl && <img className={styles.mainImage} src={imageUrl} />}
 

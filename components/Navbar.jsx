@@ -15,14 +15,14 @@ const MenuItems = ({ isMobile, active, setActive }) => {
       case 0: return '/';
       case 1: return '/about';
       case 2: return '/blog';
-      case 3: return '/reviews';
+      // case 3: return '/reviews';
       default: return '/';
     }
   };
   return (
 
     <ul className={`list-none flexCenter flex-row ${isMobile && 'flex-col h-full'}`}>
-      {['Home', 'About', 'Blog', 'Reviews'].map((item, i) => (
+      {['Home', 'About', 'Blog'].map((item, i) => (
         <li
           key={i}
           onClick={() => {
@@ -98,7 +98,7 @@ const navbar = () => {
         </div>
 
         <div className="md:hidden flex">
-          <MenuItems active={active} setActive={setActive} />
+          <MenuItems active={active} setActive={setActive} onClick={() => {}} />
           <div className="ml-4">
             <ButtonGroup setActive={setActive} router={router} />
           </div>

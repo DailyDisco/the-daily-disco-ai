@@ -7,6 +7,7 @@
 .env
 /personal-blog/node_modules
 /personal-blog
+.env.local
 
 # testing
 /coverage

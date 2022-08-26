@@ -9,13 +9,15 @@
 }
 
 .body p {
-    font-size: 24px;
-    text-indent: 50px;
-    line-height: 45px;
+    font-size: 22px;
+    text-indent: 1em;
+    line-height: 1.75em;
     text-align: justify;
-    letter-spacing: 1.5px;
+    letter-spacing: .05em;
+    margin-top: 1em;
 }
 
+/* this is the blogs in page title */
 .body h2 {
     font-size: 30px;
     font-family: poppins;
