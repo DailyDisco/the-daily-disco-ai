@@ -10,7 +10,7 @@ const Home = () => (
         childStyles="md:text-4xl sm:text-2xl xs=text-xl text-left"
         parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
       />
-      <iframe title="stableDiffusion" frameBorder="0" width="100%" height="700px" src="https://inpainter.dailydisco.repl.co/paint?embed=true" />
+      <iframe className="iframe" title="stableDiffusion" frameBorder="0" width="100%" height="600px" src="https://inpainter.dailydisco.repl.co/paint?embed=true" />
       {/* this is the div for created nfts */}
       <div className="mt-10">
         <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">

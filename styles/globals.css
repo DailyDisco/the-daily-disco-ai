@@ -113,6 +113,12 @@
     align-items: flex-start;
 }
 
+.iframe {
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
