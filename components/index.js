@@ -8,7 +8,8 @@ import Banner from './Banner';
 import Loader from './Loader';
 
 import Login from './Login';
+import Logout from './Logout';
 
 import PhotographyCard from './PhotographyCard';
 
-export { Navbar, Footer, Button, Loader, Banner, PhotographyCard, Login };
+export { Navbar, Footer, Button, Loader, Banner, PhotographyCard, Login, Logout };

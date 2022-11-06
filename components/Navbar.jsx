@@ -2,21 +2,15 @@
 // all these next imports are hooks
 import { useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
+import { getAuth } from 'firebase/auth';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
-import { getAuth, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
-import { initFirebase } from '../firebase/firebaseApp';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import images from '../assets';
 
-initFirebase();
-const provider = new GoogleAuthProvider();
-const auth = getAuth();
-
-const signIn = async () => {
-  const result = signInWithRedirect(auth, provider);
-  console.log(result.user);
-};
+import { Login } from '.';
+import { Logout } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
@@ -63,9 +57,13 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 };
 
 const navbar = () => {
+  const auth = getAuth();
+
   const { theme, setTheme } = useTheme();
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
+
+  const [user, loading] = useAuthState(auth);
 
   return (
     <div>
@@ -107,11 +105,7 @@ const navbar = () => {
         </div>
         <div className='flex flex-1 flex-row justify-end'>
           <div className='flex flex-row items-center'>
-            <button onClick={signIn} type='button' className=''>
-              <div className='bg-blue-600 mx-8 text-white rounded-md p-1 w-24'>
-                Sign In
-              </div>
-            </button>
+            {user ? <Logout /> : <Login />}
           </div>
         </div>
         <div className='flex flex-initial flex-row justify-end'>
