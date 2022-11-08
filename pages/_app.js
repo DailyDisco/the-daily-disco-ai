@@ -1,25 +1,26 @@
+/* eslint-disable jsx-quotes */
 import Script from 'next/script';
-// import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from 'next-themes'; // packages here
-
-// import , Cart, Loader, Auth later when needed
-import { Navbar, Footer } from '../components'; // internal components here
+import { ThemeProvider } from 'next-themes';
+import { Navbar, Footer } from '../components';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => (
-  <ThemeProvider attribute="class">
-    <div className="dark:bg-nft-dark bg-white min-h-screen">
-      {/* <Auth /> */}
-      <Navbar />
-      {/* <Cart /> */}
-      {/* this next line is to divide the navigation bar from the rest of the page */}
-      <div className="pt-65">
-        <Component {...pageProps} />
+  <div>
+    <ThemeProvider attribute='class'>
+      <div className='dark:bg-nft-dark bg-white min-h-screen'>
+        <Navbar />
+        {/* this next line is to divide the navigation bar from the rest of the page */}
+        <div className='pt-65'>
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-    <Script src="https://kit.fontawesome.com/2437c99726.js" crossorigin="anonymous" />
-  </ThemeProvider>
+      <Script
+        src='https://kit.fontawesome.com/2437c99726.js'
+        crossorigin='anonymous'
+      />
+    </ThemeProvider>
+  </div>
 );
 
 export default MyApp;

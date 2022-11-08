@@ -7,10 +7,8 @@ import Banner from './Banner';
 
 import Loader from './Loader';
 
-import Cart from './Cart';
-
-import Auth from './Auth';
+import Login from './Login';
 
 import PhotographyCard from './PhotographyCard';
 
-export { Navbar, Footer, Button, Loader, Cart, Banner, Auth, PhotographyCard };
+export { Navbar, Footer, Button, Loader, Banner, PhotographyCard, Login };
