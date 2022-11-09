@@ -1,12 +1,22 @@
 /* eslint-disable jsx-quotes */
 // all these next imports are hooks
 import { useState } from 'react'; // useEffect, useContext
-// import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
+import { getAuth, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
+import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
+
+initFirebase();
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+
+const signIn = async () => {
+  const result = signInWithRedirect(auth, provider);
+  console.log(result.user);
+};
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
@@ -54,7 +64,6 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 
 const navbar = () => {
   const { theme, setTheme } = useTheme();
-  // const router = useRouter();
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -96,6 +105,15 @@ const navbar = () => {
             </div>
           </Link>
         </div>
+        <div className='flex flex-1 flex-row justify-end'>
+          <div className='flex flex-row items-center'>
+            <button onClick={signIn} type='button' className=''>
+              <div className='bg-blue-600 mx-8 text-white rounded-md p-1 w-24'>
+                Sign In
+              </div>
+            </button>
+          </div>
+        </div>
         <div className='flex flex-initial flex-row justify-end'>
           <div className='flex items-center mr-2'>
             <input
@@ -121,9 +139,6 @@ const navbar = () => {
               setActive={setActive}
               onClick={() => {}}
             />
-            <div className='ml-4'>
-              <p>Login</p>
-            </div>
           </div>
         </div>
         {/* this is our mobile navigation bar */}
@@ -155,9 +170,6 @@ const navbar = () => {
             <div className='fixed inset-0 top-65 dark:bg-nft-dark bg-white z-10 nav-h flex justify-between flex-col'>
               <div className='flex-1 p-4'>
                 <MenuItems active={active} setActive={setActive} isMobile />
-              </div>
-              <div className='p-4 border-t dark:border-nft-black-1 border-nft-gray-1'>
-                {/* <ButtonGroup setActive={setActive} router={router} /> */}
               </div>
             </div>
           )}
