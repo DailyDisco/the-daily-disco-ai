@@ -1,5 +1,3 @@
-/* eslint-disable jsx-quotes */
-import React from 'react';
 import { getAuth } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -20,8 +18,8 @@ const logout = () => {
   }
 
   return (
-    <button type='button' onClick={() => auth.signOut()}>
-      <div className='bg-red-600 mx-8 text-white rounded-md p-1 w-24'>
+    <button type="button" onClick={() => auth.signOut()}>
+      <div className="bg-red-600 mx-8 text-white rounded-md p-1 w-24">
         Sign Out
       </div>
     </button>

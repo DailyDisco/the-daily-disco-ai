@@ -5,5 +5,3 @@ const Loader = () => (
 );
 
 export default Loader;
-
-// we are going to paste this on every component we create

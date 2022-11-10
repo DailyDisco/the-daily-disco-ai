@@ -1,8 +1,10 @@
-import React from 'react';
-
 const Banner = ({ name, childStyles, parentStyles }) => (
-  <div className={`relative w-full flex items-center z-0 overflow-hidden nft-gradient ${parentStyles}`}>
-    <p className={`font-bold text-5xl font-poppins leading-70 ${childStyles}`}>{name}</p>
+  <div
+    className={`relative w-full flex items-center z-0 overflow-hidden nft-gradient ${parentStyles}`}
+  >
+    <p className={`font-bold text-5xl font-poppins leading-70 ${childStyles}`}>
+      {name}
+    </p>
 
     {/* these next two lines are the CSS aesthetic bubbles that are the background of the banner */}
     <div className="absolute w-48 h-48 sm:w-32 sm:h-32 rounded-full white-bg -top-9 -left-16 -z-5" />
