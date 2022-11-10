@@ -28,7 +28,7 @@ const login = () => {
 
   return (
     <div>
-      <button onClick={signIn} type='button' className=''>
+      <button onClick={signIn} type='button'>
         <div className='bg-blue-600 mx-8 text-white rounded-md p-1 w-24'>
           Sign In
         </div>

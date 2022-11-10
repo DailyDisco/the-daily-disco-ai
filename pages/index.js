@@ -31,9 +31,9 @@ const Home = () => {
               <PhotographyCard
                 key={`stableDiffusion-${i}`}
                 stableDiffusion={{
-                  i,
                   // name: `Prompt ${i}`,
                   // price: (10 - i * 0.535).toFixed(2),
+                  i,
                   description:
                     'Art produced with Stable Diffusion prompt engineering',
                 }}
