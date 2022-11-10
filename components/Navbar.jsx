@@ -9,8 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import images from '../assets';
 
-import { Login } from '.';
-import { Logout } from '.';
+import { Login, Logout } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
@@ -63,7 +62,7 @@ const navbar = () => {
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
 
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <div>

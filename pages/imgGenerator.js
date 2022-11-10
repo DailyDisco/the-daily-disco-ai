@@ -3,6 +3,7 @@ import React from 'react';
 
 const imgGenerator = () => {
   const car = null;
+  console.log(car);
 
   return (
     <div>

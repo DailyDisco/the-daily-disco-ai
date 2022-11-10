@@ -1,5 +1,5 @@
 /* eslint-disable jsx-quotes */
-import { Banner, PhotographyCard } from '../components';
+import { PhotographyCard } from '../components'; // { Banner }
 
 const Home = () => {
   const test = null;
