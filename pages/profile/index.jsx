@@ -3,9 +3,10 @@ import { getAuth, setPersistence } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Router, { useRouter } from 'next/router';
-import { AiOutlineLogout } from 'react-icons/ai';
+// import { AiOutlineLogout } from 'react-icons/ai';
 import { setUserId } from 'firebase/analytics';
 import { PhotographyCard } from '../../components';
+import Image from 'next/image';
 
 const profile = () => {
   const auth = getAuth();
@@ -62,12 +63,12 @@ const profile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-            <img
+            <Image
               src={randomImage}
               className="w-full h-370 2xl:5-510 shadow-lg object-cover"
               alt="banner picture"
             />
-            <img
+            <Image
               className="rounded-full w-20 -mt-10 shadow-xl object-cover"
               // src={user.image}
               alt="user profile picture"
@@ -84,7 +85,7 @@ const profile = () => {
               type="button"
               onClick={() => {
                 setText(e.target.textContent);
-                setActiveBTN('created');
+                setActiveBtn('created');
               }}
               className={`${
                 activeBtn === 'created' ? activeBtnStyles : notActiveBtnStyles
@@ -96,7 +97,7 @@ const profile = () => {
               type="button"
               onClick={() => {
                 setText(e.target.textContent);
-                setActiveBTN('saved');
+                setActiveBtn('saved');
               }}
               className={`${
                 activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles

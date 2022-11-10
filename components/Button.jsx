@@ -2,11 +2,11 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut,
+  // signOut,
 } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { initFirebase } from '../firebase/firebaseApp';
 import { useRouter } from 'next/router';
+import { initFirebase } from '../firebase/firebaseApp';
 
 const Button = ({ btnName, classStyles, handleClick }) => {
   initFirebase();
