@@ -1,5 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
 
@@ -10,14 +10,14 @@ const login = () => {
   const [user, loading] = useAuthState(auth);
   // const router = useRouter();
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // if (user) {
-  //   router.push('/profile');
-  //   return <div className="mr-8">Logged in as {user.displayName}</div>;
-  // }
+  if (user) {
+    // router.push('/profile');
+    // return <div className="mr-8">Logged in as {user.displayName}</div>;
+  }
 
   const signIn = async () => {
     const result = signInWithPopup(auth, provider);

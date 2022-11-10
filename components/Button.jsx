@@ -12,12 +12,12 @@ const Button = ({ btnName, classStyles, handleClick }) => {
   initFirebase();
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  const [user, loading] = useAuthState(auth);
-  const router = useRouter();
+  // const [user, loading] = useAuthState(auth);
+  // const router = useRouter();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   const signIn = async () => {
     const result = signInWithPopup(auth, provider);

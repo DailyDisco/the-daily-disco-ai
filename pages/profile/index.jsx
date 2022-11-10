@@ -63,12 +63,12 @@ const profile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-            <Image
+            <img
               src={randomImage}
               className="w-full h-370 2xl:5-510 shadow-lg object-cover"
               alt="banner picture"
             />
-            <Image
+            <img
               className="rounded-full w-20 -mt-10 shadow-xl object-cover"
               // src={user.image}
               alt="user profile picture"
