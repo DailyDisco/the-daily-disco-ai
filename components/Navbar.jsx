@@ -2,15 +2,15 @@ import { useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
+// import { useRouter } from 'next/router';
 import {
   getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
+  // GoogleAuthProvider,
+  // signInWithPopup,
+  // signOut,
 } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
-import { useRouter } from 'next/router';
 
 import images from '../assets';
 import { Login, Logout } from '.';
@@ -62,16 +62,16 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 const navbar = () => {
   initFirebase();
   const auth = getAuth();
-  const router = useRouter();
+  // const router = useRouter();
 
   const { theme, setTheme } = useTheme();
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
   const [user, loading] = useAuthState(auth);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   // if (user) {
   //   router.push('/profile');

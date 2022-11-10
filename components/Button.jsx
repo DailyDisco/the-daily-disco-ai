@@ -4,8 +4,8 @@ import {
   signInWithPopup,
   // signOut,
 } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useRouter } from 'next/router';
+// import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useRouter } from 'next/router';
 import { initFirebase } from '../firebase/firebaseApp';
 
 const Button = ({ btnName, classStyles, handleClick }) => {
