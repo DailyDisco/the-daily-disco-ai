@@ -14,8 +14,9 @@ export default function about() {
         <div className="flex-1 font-poppins dark:text-white text-nft-black-1 text-xl minlg:text-2xl sm:mb-4 mx-5">
           <div className="mt-5">
             <p>
-              The Daily Disco is a place to discover new or different ideas
-              regarding health, tech, and pop culture.
+              The Daily Disco is a place to post AI generator pictures in a
+              social format. The site also teaches you how to create better
+              pictures, and run AI software on your own computer.
             </p>
           </div>
           <div className="mt-5">

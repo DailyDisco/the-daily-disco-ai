@@ -2,20 +2,14 @@ import { useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
-// import { useRouter } from 'next/router';
-import {
-  getAuth,
-  // GoogleAuthProvider,
-  // signInWithPopup,
-  // signOut,
-} from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
 import { Login, Logout } from '.';
 
-const MenuItems = ({ isMobile, active, setActive }) => {
+const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
     switch (i) {
       case 0:
@@ -34,16 +28,17 @@ const MenuItems = ({ isMobile, active, setActive }) => {
     <div>
       <ul
         className={`list-none flexCenter flex-row ${
-          isMobile && 'flex-col h-full'
+          isMobile && 'flex-col h-full mt-20'
         }`}
       >
-        {['Home', 'Img Generator', 'About', 'Test'].map((item, i) => (
+        {['Home', 'Img Generator', 'About'].map((item, i) => (
           <li
             key={i}
             onClick={() => {
               setActive(item);
+              setIsOpen(false);
             }}
-            className={`flex flex-row items-center font-poppins font-semibold text-base dark:hover:text-white hover:text-nft-dark mx-3
+            className={`flex flex-row items-center text-base leading-loose font-poppins font-semibold dark:hover:text-white hover:text-nft-dark mx-3
         ${
           active === item
             ? 'dark:text-white text-nft-black-1'
@@ -62,20 +57,11 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 const navbar = () => {
   initFirebase();
   const auth = getAuth();
-  // const router = useRouter();
 
   const { theme, setTheme } = useTheme();
   const [active, setActive] = useState('Home');
   const [isOpen, setIsOpen] = useState(false);
   const [user, loading] = useAuthState(auth);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  // if (user) {
-  //   router.push('/profile');
-  // }
 
   return (
     <div>
@@ -119,19 +105,6 @@ const navbar = () => {
 
         <div className="flex flex-row items-center">
           {user ? <Logout /> : <Login />}
-          {/* {user ? (
-              <Button
-                btnName="Logout"
-                classStyles="bg-red-600 mx-8 text-white rounded-md p-1 w-24"
-                onClick={signOutUser}
-              />
-            ) : (
-              <Button
-                btnName="Login"
-                classStyles="bg-blue-600 mx-8 text-white rounded-md p-1 w-24"
-                onClick={signIn}
-              />
-            )} */}
         </div>
         <div className="flex flex-initial flex-row justify-end">
           <div className="flex items-center mr-2">
@@ -188,7 +161,12 @@ const navbar = () => {
           {isOpen && (
             <div className="fixed inset-0 top-65 dark:bg-nft-dark bg-white z-10 nav-h flex justify-between flex-col">
               <div className="flex-1 p-4">
-                <MenuItems active={active} setActive={setActive} isMobile />
+                <MenuItems
+                  setIsOpen={setIsOpen}
+                  active={active}
+                  setActive={setActive}
+                  isMobile
+                />
               </div>
             </div>
           )}

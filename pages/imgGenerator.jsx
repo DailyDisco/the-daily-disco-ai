@@ -1,7 +1,4 @@
 const imgGenerator = () => {
-  const car = null;
-  console.log(car);
-
   return (
     <div>
       <iframe

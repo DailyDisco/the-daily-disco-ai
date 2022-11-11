@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 import images from '../assets';
-// eslint-disable-next-line import/no-cycle
 import { Button } from '.';
 
 const FooterLinks = ({ heading, items }) => (
@@ -66,7 +65,7 @@ const Footer = () => {
           <div className="flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
             <FooterLinks
               heading="About Us"
-              items={['Explore', 'How it Works', 'Contact Us']}
+              items={['Explore', 'How it Works', 'Blog', 'Contact Us']}
             />
             <FooterLinks
               heading="Support"

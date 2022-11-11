@@ -1,17 +1,13 @@
 import { getAuth } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { initFirebase } from '../firebase/firebaseApp';
+// import { initFirebase } from '../firebase/firebaseApp';
 
 const logout = () => {
-  initFirebase();
+  // initFirebase();
   const auth = getAuth();
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   if (!user) {
     router.push('/');
