@@ -34,6 +34,7 @@ module.exports = {
     'react/state-in-constructor': 0,
     'import/prefer-default-export': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'no-unused-vars': 0,
     'react/function-component-definition': [
       2,
       {

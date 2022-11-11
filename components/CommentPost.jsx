@@ -1,5 +1,5 @@
-const CommentPost = () => {
-  return <div>CommentPost</div>;
-};
+// const CommentPost = () => {
+//   return <div>CommentPost</div>;
+// };
 
-export default CommentPost;
+// export default CommentPost;

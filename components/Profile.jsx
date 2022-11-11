@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 // import { AiOutlineLogout } from 'react-icons/ai';
 import Image from 'next/image';
-import { PhotographyCard } from '.';
+import PhotographyCard from './PhotographyCard';
 
 const profile = () => {
   const auth = getAuth();
@@ -18,7 +18,7 @@ const profile = () => {
   const [createdImages, setCreatedImages] = useState(null);
   const [activeBtn, setActiveBtn] = useState('created');
   const [text, setText] = useState('Created');
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const router = useRouter();
 
   // useEffect(() => {
@@ -75,7 +75,7 @@ const profile = () => {
           <div className="text-center mb-7">
             <button
               type="button"
-              onClick={() => {
+              onClick={(e) => {
                 setText(e.target.textContent);
                 setActiveBtn('created');
               }}
@@ -87,7 +87,7 @@ const profile = () => {
             </button>
             <button
               type="button"
-              onClick={() => {
+              onClick={(e) => {
                 setText(e.target.textContent);
                 setActiveBtn('saved');
               }}

@@ -5,7 +5,7 @@ import { PhotographyCard, Profile } from '../components'; // { Banner }
 
 const Home = () => {
   const auth = getAuth();
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   // const router = useRouter();
   return (
     <div className="flex justify-center sm:px-4 p-12">

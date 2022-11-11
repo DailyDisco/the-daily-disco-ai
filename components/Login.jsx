@@ -12,7 +12,7 @@ const login = () => {
   initFirebase();
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   // const router = useRouter();
 
   if (user) {
