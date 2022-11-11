@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 .env
+/dailyDisco_backend/node_modules
+/dailyDisco_backend
 /personal-blog/node_modules
 /personal-blog
 .env.local

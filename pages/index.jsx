@@ -1,12 +1,12 @@
 import { getAuth } from 'firebase/auth';
-import { PhotographyCard, Profile } from '../components'; // { Banner }
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
+import { PhotographyCard, Profile } from '../components'; // { Banner }
 
 const Home = () => {
   const auth = getAuth();
   const [user, loading] = useAuthState(auth);
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-4/5">

@@ -10,6 +10,7 @@ import Logout from './Logout';
 
 import PhotographyCard from './PhotographyCard';
 import Profile from './Profile';
+import PicturePost from './PicturePost';
 
 export {
   Navbar,
