@@ -1,3 +1,5 @@
+<img src='socialCover.jpg' alt='homepage image'></img>
+
 ## What is this?
 The-template is a high amount of my developer skills wrapped up in one application: a social media site where you can create AI generated prompts and share the pictures socially. I will also be hosting special tutorials to how to create many AI applications.
 
