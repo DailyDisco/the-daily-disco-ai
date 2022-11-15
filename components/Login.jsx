@@ -8,8 +8,8 @@ import {
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Route, useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 import { initFirebase } from '../firebase/firebaseApp';
-
 import { client } from '../pages/client';
 
 const login = () => {
@@ -65,10 +65,16 @@ const login = () => {
   };
 
   return (
-    <div>
+    <div className="opacity-1">
       <button onClick={signIn} type="button" onChange={onAuthStateChanged}>
-        <div className="bg-blue-600 mx-8 text-white rounded-md p-1 w-24">
+        {/* <div className="bg-blue-600 mx-8 text-white rounded-md p-1 w-24">
           Sign In
+        </div> */}
+        <div className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none">
+          <div className="flex items-center justify-center mr-5">
+            <FcGoogle className="mr-3 h-7 w-7" />
+            <div className="text-xl font-bold ">Login</div>
+          </div>
         </div>
       </button>
     </div>

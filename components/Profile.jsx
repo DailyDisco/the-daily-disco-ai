@@ -84,7 +84,7 @@ const profile = () => {
             <h1 className="font-bold text-3xl text-center mt-3">
               <p>{userAuth.displayName}</p>
             </h1>
-            <div className="absolute top-0 z-1 right-0 p-2">
+            <div className="absolute top-0 z-1 -right-5 p-2">
               {/* {console.log(userAuth.uid, userAuth._id)} */}
               {/* {userAuth.uid === userAuth._id && <Logout />} */}
               {/* <AiOutlineLogout color="red" fontSize={21} /> */}
