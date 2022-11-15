@@ -1,10 +1,8 @@
 import { getAuth } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import { initFirebase } from '../firebase/firebaseApp';
 
 const logout = () => {
-  // initFirebase();
   const auth = getAuth();
   const [user] = useAuthState(auth);
   const router = useRouter();

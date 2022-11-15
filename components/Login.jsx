@@ -4,9 +4,13 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from 'firebase/auth';
+import Router from 'next/router';
 // import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Route, useNavigate } from 'react-router-dom';
 import { initFirebase } from '../firebase/firebaseApp';
+
+import { client } from '../pages/client';
 
 const login = () => {
   initFirebase();
@@ -14,6 +18,40 @@ const login = () => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
   // const router = useRouter();
+
+  // const responseGoogle = (response) => {
+  // const navigate = useNavigate();
+  // signInWithPopup(auth, provider)
+  //   .then((result) => {
+  //     const credential = GoogleAuthProvider.credentialFromResult(result);
+  //     const token = credential.accessToken;
+  //     const user = result.user;
+  //     console.log('user', user);
+  //     console.log('token', token);
+  //   })
+  //   .catch((error) => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     const email = error.email;
+  //     const credential = GoogleAuthProvider.credentialFromError(error);
+  //     console.log('errorCode', errorCode);
+  //     console.log('errorMessage', errorMessage);
+  //     console.log('email', email);
+  //     console.log('credential', credential);
+  //   });
+  // localStorage.setItem('user', JSON.stringify(user));
+  // const { displayName, email, photoURL } = user;
+  // // this tells sanity what variables to receive
+  // const doc = {
+  //   _id: user.uid,
+  //   _type: 'user',
+  //   userName: displayName,
+  //   image: photoURL,
+  // };
+  // client.createIfNotExists(doc).then(() => {
+  //   navigate('/', { replace: true });
+  // });
+  // };
 
   if (user) {
     // router.push('/profile');
@@ -23,6 +61,7 @@ const login = () => {
   const signIn = async () => {
     const result = signInWithPopup(auth, provider);
     console.log(result.user);
+    // Router.push('/feed');
   };
 
   onAuthStateChanged(auth, () => {
@@ -56,6 +95,21 @@ const login = () => {
         refreshToken,
         accessToken
       );
+      // const navigate = useNavigate();
+      // localStorage.setItem('user', JSON.stringify(user));
+
+      // // this tells sanity what variables to receive
+      // const doc = {
+      //   _id: user.uid,
+      //   _type: 'user',
+      //   userName: user.displayName,
+      //   image: user.photoURL,
+      // };
+
+      // client.createIfNotExists(doc).then(() => {
+      //   navigate('/', { replace: true });
+      // });
+      // // Router.push('/');
     } else {
       console.log('user is signed out');
     }

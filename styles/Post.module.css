@@ -1,0 +1,26 @@
+.main {
+    margin: auto;
+    width: 750px;
+    max-width: calc(100vh - 50px);
+}
+
+.mainImage {
+    width: 100%
+}
+
+.body p {
+    font-size: 22px;
+    text-indent: 1em;
+    line-height: 1.75em;
+    text-align: justify;
+    letter-spacing: .05em;
+    margin-top: 1em;
+}
+
+/* this is the blogs in page title */
+.body h2 {
+    font-size: 30px;
+    font-family: poppins;
+    display: flex;
+    justify-content: center;
+}
