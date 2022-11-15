@@ -54,7 +54,7 @@ const Footer = () => {
               />
               <div className="flex-initial">
                 <Button
-                  btnName="Email me"
+                  btnName="Subscribe"
                   classStyles="rounded-md"
                   // onClick={}
                 />

@@ -11,8 +11,7 @@ const LandingPage = () => {
           </h1>
         </div>
         <p className="flex-1 mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
-          Feel free to email us your prompts and we will do our best to post the
-          results for you.
+          Sign up and start sharing your own AI generated pictures and stories.
         </p>
         <div className="mt-3 w-full flex flex-wrap justify-start md:justify-center">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => (
