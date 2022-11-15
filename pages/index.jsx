@@ -21,7 +21,10 @@ const Home = () => {
         {user ? (
           <div>
             <Profile user={user} />
-            {/* <Feed /> */}
+            <div className="">
+              <h3 className='flex justify-center items-center text-2xl font-bold mb-2'>Social Feed</h3>
+              <Feed />
+            </div>
             {/* <PinDetail /> */}
             {/* <CreateImagePost /> */}
           </div>

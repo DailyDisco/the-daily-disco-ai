@@ -1,4 +1,8 @@
 {
   "editor.formatOnSave": false,
-  "cSpell.words": ["Twotone", "uuidv"]
+  "cSpell.words": [
+    "pngjs",
+    "Twotone",
+    "uuidv"
+  ]
 }
