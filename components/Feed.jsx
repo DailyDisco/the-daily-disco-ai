@@ -5,12 +5,15 @@ import { client } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 import { feedQuery, searchQuery } from '../utils/data';
+import { fetchUser } from '../utils/fetchUser';
 
 const Feed = () => {
   const [loading, setloading] = useState(false);
   const [pins, setPins] = useState(null);
   // you can target the query string with the router
   const { categoryId } = useRouter().query;
+
+  const userInfo = fetchUser();
 
   // this is the query that will be sent to sanity
   // every time that the categoryId changes
@@ -31,7 +34,7 @@ const Feed = () => {
   }, [categoryId]);
 
   // if (loading) {
-  //   return <Spinner message="We are adding new ideas to your feed!" />;
+  //   return <Spinner />;
   // }
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };

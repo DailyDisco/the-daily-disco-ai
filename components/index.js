@@ -12,7 +12,7 @@ import Logout from './Logout';
 import Profile from './Profile';
 import PhotographyCard from './PhotographyCard';
 import LandingPage from './LandingPage';
-// import PicturePost from './PicturePost';
+import CreateImagePost from './CreateImagePost';
 // import CommentPost from './CommentPost';
 
 export {
@@ -27,7 +27,7 @@ export {
   Pin,
   Profile,
   LandingPage,
-  // PicturePost,
+  CreateImagePost,
   // CommentPost,
   Logout,
 };

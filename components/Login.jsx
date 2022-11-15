@@ -3,9 +3,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
+  signInWithRedirect,
 } from 'firebase/auth';
-import Router from 'next/router';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Route, useNavigate } from 'react-router-dom';
 import { initFirebase } from '../firebase/firebaseApp';
@@ -17,6 +17,7 @@ const login = () => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
   const [user] = useAuthState(auth);
+  const router = useRouter();
   // const router = useRouter();
 
   // const responseGoogle = (response) => {
@@ -60,64 +61,33 @@ const login = () => {
 
   const signIn = async () => {
     const result = signInWithPopup(auth, provider);
-    console.log(result.user);
-    // Router.push('/feed');
+    const { displayName, email, photoURL } = result.user;
+    console.log('result', result);
+    console.log('displayName', displayName);
+    console.log('email', email);
+    console.log('photoURL', photoURL);
+    // const navigate = useNavigate();
+    // localStorage.setItem('user', JSON.stringify(user));
+
+    // // this tells sanity what variables to receive
+    // const doc = {
+    //   _id: user.uid,
+    //   _type: 'user',
+    //   userName: user.displayName,
+    //   image: user.photoURL,
+    // };
+
+    // client.createIfNotExists(doc).then(() => {
+    //   navigate('/', { replace: true });
+    // });
+    // // router.push('/');
+    // // Router.push('/feed');
   };
-
-  onAuthStateChanged(auth, () => {
-    if (user) {
-      const {
-        uid,
-        displayName,
-        email,
-        photoURL,
-        emailVerified,
-        phoneNumber,
-        isAnonymous,
-        tenantId,
-        providerData,
-        metadata,
-        refreshToken,
-        accessToken,
-      } = user;
-      console.log(
-        user,
-        uid,
-        displayName,
-        email,
-        photoURL,
-        emailVerified,
-        phoneNumber,
-        isAnonymous,
-        tenantId,
-        providerData,
-        metadata,
-        refreshToken,
-        accessToken
-      );
-      // const navigate = useNavigate();
-      // localStorage.setItem('user', JSON.stringify(user));
-
-      // // this tells sanity what variables to receive
-      // const doc = {
-      //   _id: user.uid,
-      //   _type: 'user',
-      //   userName: user.displayName,
-      //   image: user.photoURL,
-      // };
-
-      // client.createIfNotExists(doc).then(() => {
-      //   navigate('/', { replace: true });
-      // });
-      // // Router.push('/');
-    } else {
-      console.log('user is signed out');
-    }
-  });
 
   return (
     <div>
-      <button onClick={signIn} type="button" onChange={onAuthStateChanged}>
+      <button onClick={signIn} type="button">
+        {/* onChange={onAuthStateChanged} */}
         <div className="bg-blue-600 mx-8 text-white rounded-md p-1 w-24">
           Sign In
         </div>
