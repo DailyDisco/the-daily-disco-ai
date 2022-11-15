@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { client } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
-import Spinner from './Spinner';
+// import Spinner from './Spinner';
 import { feedQuery, searchQuery } from '../utils/data';
 import { fetchUser } from '../utils/fetchUser';
 

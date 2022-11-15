@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { client } from '../pages/client';
-import Spinner from './Spinner';
+// import Spinner from './Spinner';
 import { categories } from '../utils/data';
 
 const CreateImagePost = ({ user }) => {

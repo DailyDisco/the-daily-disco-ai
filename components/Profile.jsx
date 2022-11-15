@@ -9,7 +9,7 @@ import { AiOutlineLogout } from 'react-icons/ai';
 // import Image from 'next/image';
 // import PhotographyCard from './PhotographyCard';
 import MasonryLayout from './MasonryLayout';
-import Spinner from './Spinner';
+// import Spinner from './Spinner';
 import {
   userQuery,
   userCreatedPinsQuery,
