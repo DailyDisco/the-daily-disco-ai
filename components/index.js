@@ -13,6 +13,7 @@ import Profile from './Profile';
 import PhotographyCard from './PhotographyCard';
 import LandingPage from './LandingPage';
 import CreateImagePost from './CreateImagePost';
+import PinDetail from './PinDetail';
 // import CommentPost from './CommentPost';
 
 export {
@@ -28,6 +29,7 @@ export {
   Profile,
   LandingPage,
   CreateImagePost,
-  // CommentPost,
   Logout,
+  PinDetail,
+  // CommentPost,
 };

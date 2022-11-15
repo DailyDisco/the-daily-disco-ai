@@ -1,47 +1,63 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-quotes */
 import { getAuth } from 'firebase/auth'; // setPersistence
-import { useState } from 'react'; // useEffect
+import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
-// import { AiOutlineLogout } from 'react-icons/ai';
-import Image from 'next/image';
-import PhotographyCard from './PhotographyCard';
+import { AiOutlineLogout } from 'react-icons/ai';
+// import Image from 'next/image';
+// import PhotographyCard from './PhotographyCard';
+import MasonryLayout from './MasonryLayout';
+import Spinner from './Spinner';
+import {
+  userQuery,
+  userCreatedPinsQuery,
+  userSavedPinsQuery,
+} from '../utils/data';
+import { client } from '../pages/client';
+import Logout from './Logout';
 
 const profile = () => {
-  const auth = getAuth();
   const randomImage =
     'https://source.unsplash.com/1600x900/?nature,photography,technology';
   const activeBtnStyles =
     'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
   const notActiveBtnStyles =
     'bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none';
-  const [createdImages, setCreatedImages] = useState(null);
-  const [activeBtn, setActiveBtn] = useState('created');
+  const [user, setUser] = useState(null);
+  const [pins, setPins] = useState(null);
   const [text, setText] = useState('Created');
-  const [user] = useAuthState(auth);
+  const [activeBtn, setActiveBtn] = useState('created');
   const router = useRouter();
+  const { userId } = router.query;
+  const auth = getAuth();
+  const [userAuth] = useAuthState(auth);
 
-  // useEffect(() => {
-  //   const query = userQuery(userId);
+  useEffect(() => {
+    const query = userQuery(userId);
 
-  //   client.fetch(query).then((data) => {
-  //     setUserId(data[0]);
-  //   });
-  // }, [userId]);
+    client.fetch(query).then((data) => {
+      setUser(data[0]);
+    });
+  }, [userId]);
 
-  // useEffect(() => {
-  //   if (text === 'Created') {
-  //     const createdImagesQuery = userCreatedImagesQuery(userId);
+  useEffect(() => {
+    if (text === 'Created') {
+      const createdPinsQuery = userCreatedPinsQuery(userId);
 
-  //     client.fetch(createdImagesQuery).then((data) => {
-  //       setPins(data);
-  //     });
-  //   } else {
-  //     const savedImagesQuery = userSavedImagesQuery(userId);
-  //   }
-  // }, [text, userId]);
+      client.fetch(createdPinsQuery).then((data) => {
+        setPins(data);
+      });
+    } else {
+      const savedPinsQuery = userSavedPinsQuery(userId);
+      client.fetch(savedPinsQuery).then((data) => {
+        setPins(data);
+      });
+    }
+  }, [text, userId]);
 
-  if (!user) {
+  if (!userAuth) {
     router.push('/');
     return <div>Please sign in to continue</div>;
   }
@@ -51,25 +67,28 @@ const profile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-            <Image
+            <img
               src={randomImage}
               className="w-full h-370 2xl:5-510 shadow-lg object-cover"
               alt="banner picture"
-              width={1600}
-              height={900}
+              // width={1600}
+              // height={900}
             />
-            <Image
+            <img
               className="rounded-full w-20 -mt-10 shadow-xl object-cover"
-              src={user.photoURL}
+              src={userAuth.photoURL}
               alt="user profile picture"
-              width={80}
-              height={80}
+              // width={80}
+              // height={80}
             />
             <h1 className="font-bold text-3xl text-center mt-3">
-              <p>{user.displayName}</p>
+              <p>{userAuth.displayName}</p>
             </h1>
             <div className="absolute top-0 z-1 right-0 p-2">
-              {/* {userId === user._id && <Logout />} */}
+              {/* {console.log(userAuth.uid, userAuth._id)} */}
+              {/* {userAuth.uid === userAuth._id && <Logout />} */}
+              {/* <AiOutlineLogout color="red" fontSize={21} /> */}
+              <Logout />
             </div>
           </div>
           <div className="text-center mb-7">
@@ -98,9 +117,9 @@ const profile = () => {
               Saved
             </button>
           </div>
-          {createdImages?.length ? (
+          {pins?.length ? (
             <div className="px-2">
-              <PhotographyCard />
+              <MasonryLayout pins={pins} />
             </div>
           ) : (
             <div className="flex justify-center font-bold items-center w-full text-xl mt-2">

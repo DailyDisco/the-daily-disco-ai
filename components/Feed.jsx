@@ -33,10 +33,12 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  // if (loading) {
-  //   return <Spinner />;
-  // }
-  return <div>{pins && <MasonryLayout pins={pins} />}</div>;
+  return (
+    <div>
+      <div>{pins && <MasonryLayout pins={pins} />}</div>
+      {/* <div>{loading && <Spinner />}</div> */}
+    </div>
+  );
 };
 
 export default Feed;

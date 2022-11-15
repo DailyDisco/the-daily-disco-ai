@@ -12,10 +12,12 @@ import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 // uuidv4 is a utility function that comes with sanity that lets us look for the url of the image
 import { v4 as uuidv4 } from 'uuid';
 // url for is a utility function that comes with sanity that lets us look for th url of the image
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth } from 'firebase/auth';
 import { client, urlFor } from '../pages/client';
 import { fetchUser } from '../utils/fetchUser';
 
-const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
+const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   // states that activate when you hover over the image
   const [postHovered, setPostHovered] = useState(false);
   // states that activate when you save a post
@@ -24,14 +26,17 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const router = useRouter();
 
   // this gives us the current user using a util function so that we don't have to repeat code
-  const user = fetchUser();
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
+  console.log('uid on pin component', user.uid);
+  console.log(_id);
 
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
   // eslint-disable-next-line no-unsafe-optional-chaining
-  const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user.googleId
-  )?.length;
+  const alreadySaved = !!(save?.filter(
+    (item) => item.postedBy._id === user.uid
+  )?.length);
 
   // this is for users to save their favorite posts
   const savePin = (id) => {
@@ -46,10 +51,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           {
             // this will generate a unique id for the user
             _key: uuidv4(),
-            userId: user.googleId,
+            userId: user.uid,
             postedBy: {
               _type: 'reference',
-              _ref: user.googleId,
+              _ref: user.uid,
             },
           },
         ])
@@ -124,7 +129,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
               )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
-              {destination && (
+              {/* {destination && (
                 <a
                   href={destination}
                   target="_blank"
@@ -132,12 +137,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:100 hover:shadow-md"
                 >
                   <BsFillArrowUpRightCircleFill />
-                  {destination.length > 20
-                    ? destination.slice(8, 20)
-                    : destination.slice(8)}
+                  {destination.length > 15 ? `${destination.slice(0,15)}...` : destination}
                 </a>
-              )}
-              {/* {postedBy?._id === user.googleId && (
+              )} */}
+              {postedBy?._id === user.uid && (
                 <button
                   type="button"
                   onClick={(e) => {
@@ -148,7 +151,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 >
                   <AiTwotoneDelete />
                 </button>
-              )} */}
+              )}
             </div>
           </div>
         )}

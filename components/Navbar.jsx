@@ -105,7 +105,8 @@ const navbar = () => {
         <div className="flex flex-1 flex-row justify-end"> </div>
 
         <div className="flex flex-row items-center">
-          {user ? <Logout /> : <Login />}
+          {/* {user ? <Logout /> : <Login />} */}
+          {user ? <></> : <Login />}
         </div>
         <div className="flex flex-initial flex-row justify-end">
           <div className="flex items-center mr-2">
