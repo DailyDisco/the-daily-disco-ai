@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Banner from './Banner';
-// import Spinner from './Spinner';
+import Spinner from './Spinner';
 import Feed from './Feed';
 import Pin from './Pin';
 
@@ -20,7 +20,7 @@ export {
   Navbar,
   Footer,
   Button,
-  // Spinner,
+  Spinner,
   Feed,
   Banner,
   PhotographyCard,

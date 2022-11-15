@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { client } from '../pages/client';
-// import Spinner from './Spinner';
+import Spinner from './Spinner';
 import { categories } from '../utils/data';
 
 const CreateImagePost = ({ user }) => {
@@ -99,7 +99,7 @@ const CreateImagePost = ({ user }) => {
       <div className=" flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5  w-full">
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
           <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
-            {/* {loading && <Spinner />} */}
+            {loading && <Spinner />}
             {wrongImageType && <p>Wrong file type.</p>}
             {!imageAsset ? (
               // eslint-disable-next-line jsx-a11y/label-has-associated-control
