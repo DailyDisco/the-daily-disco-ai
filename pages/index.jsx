@@ -8,6 +8,7 @@ import {
   PhotographyCard,
   PinDetail,
   Profile,
+  // Spinner,
 } from '../components'; // { Banner }
 
 const Home = () => {

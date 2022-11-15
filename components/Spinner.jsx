@@ -1,11 +1,11 @@
-import Loader from 'react-loader-spinner';
+import Dna from 'react-loader-spinner';
 import { useState, useEffect } from 'react';
 
 const Spinner = ({ message }) => {
   return (
     <div className="flex flex-col justify-center w-full h-full">
-      <Loader
-        type="TailSpin"
+      <Dna
+        // type="ThreeDots"
         color="#00BFFF"
         height={100}
         width={200}
