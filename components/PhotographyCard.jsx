@@ -18,20 +18,19 @@ const PhotographyCard = ({ stableDiffusion }) => (
           }
           layout="fill"
           objectFit="cover"
-          alt="nft{nft.i}"
+          alt="landing page image examples."
         />
       </div>
-      <div className="mt-3 flex flex-col">
+      {/* <div className="mt-3 flex flex-col">
         <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm minlg:text-xl">
-          {stableDiffusion.name}
+          {stableDiffusion.prompt}
         </p>
-        {/* <div className="flexBetween mt-3 minlg:mt-3 flex-row xs:flex-col xs:items-start xs:mt-3">
-           
-            <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xs minlg:text-lg">
-              {nft.seller}
-            </p>
-          </div> */}
-      </div>
+        <div className="flexBetween mt-3 minlg:mt-3 flex-row xs:flex-col xs:items-start xs:mt-3">
+          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xs minlg:text-lg">
+            {stableDiffusion.postedBy}
+          </p>
+        </div>
+      </div> */}
     </div>
     {/* </Link> */}
   </div>
