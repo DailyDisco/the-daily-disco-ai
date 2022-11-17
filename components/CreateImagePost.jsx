@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { categories } from '../pages/utils/data';
+import { categories } from '../utils/data';
 import { client } from '../pages/client';
 import Spinner from './Spinner';
 

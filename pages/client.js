@@ -15,8 +15,8 @@ const builder = ImageUrlBuilder(client);
 // this is a utility function to create image urls
 export const urlFor = (source) => builder.image(source);
 
-// const random = () => {
-//   return <div>client</div>;
-// };
+const random = () => {
+  return <div>client</div>;
+};
 
-// export default random;
+export default random;

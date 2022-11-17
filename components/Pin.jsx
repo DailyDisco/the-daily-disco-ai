@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
 import { client, urlFor } from '../pages/client';
-import { fetchUser } from '../pages/utils/fetchUser';
+import { fetchUser } from '../utils/fetchUser';
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   // states that activate when you hover over the image

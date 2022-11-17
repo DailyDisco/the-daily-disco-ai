@@ -15,7 +15,7 @@ import {
   userQuery,
   userCreatedPinsQuery,
   userSavedPinsQuery,
-} from '../pages/utils/data';
+} from '../utils/data';
 import { client } from '../pages/client';
 import Logout from './Logout';
 // import CreateImagePost from './CreateImagePost';

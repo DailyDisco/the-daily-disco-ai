@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { client } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
-import { feedQuery, searchQuery } from '../pages/utils/data';
+import { feedQuery, searchQuery } from '../utils/data';
 
 const Feed = () => {
   const [loading, setloading] = useState(false);

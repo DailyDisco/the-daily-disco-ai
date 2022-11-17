@@ -9,7 +9,7 @@ import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { client, urlFor } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
-import { pinDetailMorePinQuery, pinDetailQuery } from '../pages/utils/data';
+import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/data';
 import Spinner from './Spinner';
 
 const PinDetail = () => {
