@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
 import { client, urlFor } from '../pages/client';
-import { fetchUser } from '../utils/fetchUser';
+import { fetchUser } from '../pages/utils/fetchUser';
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   // states that activate when you hover over the image
@@ -30,6 +30,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   const [user] = useAuthState(auth);
   console.log('uid on pin component', user.uid);
   console.log(_id);
+  // console.log(localStorage)
 
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
@@ -80,7 +81,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
         // this click handler will take you to the post page
-        onClick={() => router.push(`/pin-detail/${_id}`)}
+        onClick={() => router.push(`/pin-detail/${user.uid}`)}
         className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
       >
         <img

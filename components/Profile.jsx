@@ -1,3 +1,5 @@
+// change set user id so that you can link to pin details
+
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-quotes */
@@ -14,9 +16,10 @@ import {
   userQuery,
   userCreatedPinsQuery,
   userSavedPinsQuery,
-} from '../utils/data';
+} from '../pages/utils/data';
 import { client } from '../pages/client';
 import Logout from './Logout';
+// import CreateImagePost from './CreateImagePost';
 
 const profile = () => {
   const randomImage =
@@ -33,24 +36,34 @@ const profile = () => {
   const { userId } = router.query;
   const auth = getAuth();
   const [userAuth] = useAuthState(auth);
+  const userInfo =
+    localStorage.getItem('user') !== 'undefined'
+      ? JSON.parse(localStorage.getItem('user'))
+      : localStorage.clear();
 
   useEffect(() => {
-    const query = userQuery(userId);
-
+    // console.log('start of useEffect for loading user');
+    // console.log('userId we are sending', userAuth.uid);
+    const query = userQuery(userInfo?.uid);
+    console.log('query', query);
     client.fetch(query).then((data) => {
       setUser(data[0]);
+      console.log('this is the useEffect on Profile for user', user);
     });
   }, [userId]);
 
   useEffect(() => {
+    console.log('start of useEffect for saved pins');
     if (text === 'Created') {
-      const createdPinsQuery = userCreatedPinsQuery(userId);
+      const createdPinsQuery = userCreatedPinsQuery(userAuth.uid);
 
       client.fetch(createdPinsQuery).then((data) => {
+        console.log('created pins', data);
         setPins(data);
+        console.log('post fetch data for saved pin', pins);
       });
     } else {
-      const savedPinsQuery = userSavedPinsQuery(userId);
+      const savedPinsQuery = userSavedPinsQuery(userAuth.uid);
       client.fetch(savedPinsQuery).then((data) => {
         setPins(data);
       });

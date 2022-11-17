@@ -4,16 +4,13 @@ import { useRouter } from 'next/router';
 import { client } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
-import { feedQuery, searchQuery } from '../utils/data';
-import { fetchUser } from '../utils/fetchUser';
+import { feedQuery, searchQuery } from '../pages/utils/data';
 
 const Feed = () => {
   const [loading, setloading] = useState(false);
   const [pins, setPins] = useState(null);
   // you can target the query string with the router
   const { categoryId } = useRouter().query;
-
-  const userInfo = fetchUser();
 
   // this is the query that will be sent to sanity
   // every time that the categoryId changes
@@ -24,6 +21,7 @@ const Feed = () => {
       client.fetch(query).then((data) => {
         setPins(data);
         setloading(false);
+        console.log('success');
       });
     } else {
       client.fetch(feedQuery).then((data) => {
@@ -33,10 +31,17 @@ const Feed = () => {
     }
   }, [categoryId]);
 
+  const ideaName = categoryId || 'new';
+
+  if (loading) {
+    return (
+      <Spinner message={`We are sorting by ${ideaName} ideas to your feed!`} />
+    );
+  }
+
   return (
     <div>
       <div>{pins && <MasonryLayout pins={pins} />}</div>
-      <div>{loading && <Spinner />}</div>
     </div>
   );
 };

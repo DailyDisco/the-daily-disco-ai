@@ -179,7 +179,10 @@ export const searchQuery = (searchTerm) => {
 };
 
 export const userQuery = (userId) => {
+  // console.log('start of backend query', userId);
+  // get a document with type of doc and id of userId
   const query = `*[_type == "user" && _id == '${userId}']`;
+  // console.log('end of backend query', query);
   return query;
 };
 

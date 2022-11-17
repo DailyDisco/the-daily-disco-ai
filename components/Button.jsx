@@ -1,5 +1,3 @@
-// import { useRouter } from 'next/router';
-import { initFirebase } from '../firebase/firebaseApp';
 
 const Button = ({ btnName, classStyles, handleClick }) => {
   return (

@@ -5,11 +5,13 @@ import { MdDelete } from 'react-icons/md';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { getAuth } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { categories } from '../pages/utils/data';
 import { client } from '../pages/client';
 import Spinner from './Spinner';
-import { categories } from '../utils/data';
 
-const CreateImagePost = ({ user }) => {
+const CreateImagePost = () => {
   // title of the post
   const [title, setTitle] = useState('');
   // description of the post
@@ -24,6 +26,9 @@ const CreateImagePost = ({ user }) => {
   const [wrongImageType, setWrongImageType] = useState(false);
 
   const router = useRouter();
+
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
 
   const uploadImage = (e) => {
     const { type, name } = e.target.files[0];
@@ -55,7 +60,7 @@ const CreateImagePost = ({ user }) => {
     }
   };
 
-  const savePin = ({ uid }) => {
+  const savePin = () => {
     if (title && about && destination && imageAsset?._id && category) {
       const doc = {
         _type: 'pin',
@@ -69,20 +74,21 @@ const CreateImagePost = ({ user }) => {
             _ref: imageAsset?._id,
           },
         },
-        userId: uid,
+        userId: user.uid,
         postedBy: {
           _type: 'postedBy',
-          _ref: uid,
+          _ref: user.uid,
         },
         category,
       };
 
       client.create(doc).then(() => {
-        router.push('/');
+        console.log('Document created', doc);
+        // router.push('/');
       });
     } else {
       setFields(true);
-
+      console.log('Please fill out all fields');
       setTimeout(() => {
         setFields(false);
       }, 2000);
@@ -144,6 +150,16 @@ const CreateImagePost = ({ user }) => {
         </div>
 
         <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-full">
+          {/* {user && (
+            <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
+              <img
+                src={user.photoURL}
+                className="w-10 h-10 rounded-full"
+                alt="user-profile"
+              />
+              <p className="font-bold">{user.userName}</p>
+            </div>
+          )} */}
           <input
             type="text"
             value={title}
@@ -151,21 +167,11 @@ const CreateImagePost = ({ user }) => {
             placeholder="Add your title"
             className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
           />
-          {user && (
-            <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-              <img
-                src={user.image}
-                className="w-10 h-10 rounded-full"
-                alt="user-profile"
-              />
-              <p className="font-bold">{user.userName}</p>
-            </div>
-          )}
           <input
             type="text"
             value={about}
             onChange={(e) => setAbout(e.target.value)}
-            placeholder="Tell everyone what your Pin is about"
+            placeholder="Write a short description"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />
           <input
@@ -200,7 +206,7 @@ const CreateImagePost = ({ user }) => {
                 ))}
               </select>
             </div>
-            <div className="flex justify-end items-end mt-5">
+            <div className="flex justify-end items-end mt-5 mx-auto">
               <button
                 type="button"
                 onClick={savePin}

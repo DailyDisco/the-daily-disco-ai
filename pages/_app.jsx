@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }) => (
       <div className="pt-65">
         <Component {...pageProps} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
     <Script
       src="https://kit.fontawesome.com/2437c99726.js"

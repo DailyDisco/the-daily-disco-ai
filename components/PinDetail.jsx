@@ -1,20 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom';
-// import Link from 'next/link';
+// import { Link, useParams } from 'react-router-dom';
+import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import { getAuth } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { client, urlFor } from '../pages/client';
 import MasonryLayout from './MasonryLayout';
-import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/data';
+import { pinDetailMorePinQuery, pinDetailQuery } from '../pages/utils/data';
 import Spinner from './Spinner';
 
-const PinDetail = ({ user }) => {
+const PinDetail = () => {
   // use router.query to get the id of the post
-  // const router = useRouter();
-  // const { pinId } = router.query;
-  const { pinId } = useParams();
+  const router = useRouter();
+  const { pinId } = router.query;
+  // const { pinId } = useParams();
+
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
+  // const User =
+  //   localStorage.getItem('user') !== 'undefined'
+  //     ? JSON.parse(localStorage.getItem('user'))
+  //     : localStorage.clear();
 
   // pins are the posts that will be displayed
   const [pins, setPins] = useState();
@@ -28,15 +37,19 @@ const PinDetail = ({ user }) => {
   // this is the query that will be sent to sanity to get the post that is being displayed
   const fetchPinDetails = () => {
     console.log('fetching pin details');
-    const query = pinDetailQuery(pinId);
+    console.log('pinId we need to query', pinId);
+    const query = pinDetailQuery('lykpIUqaXTD5Wb28QEQEPY');
     console.log('query', query);
     if (query) {
       client.fetch(`${query}`).then((data) => {
+        console.log('post fetch data', data);
+        console.log('post fetch data', data[0]);
         setPinDetail(data[0]);
-        console.log(data);
+        // console.log('pinDetail', pinDetail);
         if (data[0]) {
           const query1 = pinDetailMorePinQuery(data[0]);
           client.fetch(query1).then((res) => {
+            console.log('more pins', res);
             setPins(res);
           });
         }
@@ -46,9 +59,7 @@ const PinDetail = ({ user }) => {
 
   // this is the query that will be sent to sanity to get the posts that will be displayed
   useEffect(() => {
-    console.log('start of useEffect');
     fetchPinDetails();
-    console.log('end of useEffect');
   }, [pinId]);
 
   const addComment = () => {
@@ -75,7 +86,12 @@ const PinDetail = ({ user }) => {
   };
 
   if (!pinDetail) {
-    return <Spinner message="Showing pin" />;
+    return (
+      <div>
+        <Spinner />
+        <p>Loading post details... </p>
+      </div>
+    );
   }
 
   return (
@@ -103,9 +119,10 @@ const PinDetail = ({ user }) => {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              <a href={pinDetail.destination} target="_blank" rel="noreferrer">
+              {/* this is for linking to another source */}
+              {/* <a href={pinDetail.destination} target="_blank" rel="noreferrer">
                 {pinDetail.destination?.slice(8)}
-              </a>
+              </a> */}
             </div>
             <div>
               <h1 className="text-4xl font-bold break-words mt-3">
@@ -113,8 +130,8 @@ const PinDetail = ({ user }) => {
               </h1>
               <p className="mt-3">{pinDetail.about}</p>
             </div>
-            <Link
-              to={`/user-profile/${pinDetail?.postedBy._id}`}
+            {/* <Link
+              href={`/user-profile/${pinDetail?.postedBy._id}`}
               className="flex gap-2 mt-5 items-center bg-white rounded-lg "
             >
               <img
@@ -123,7 +140,7 @@ const PinDetail = ({ user }) => {
                 alt="user-profile"
               />
               <p className="font-bold">{pinDetail?.postedBy.userName}</p>
-            </Link>
+            </Link> */}
             <h2 className="mt-5 text-2xl">Comments</h2>
             <div className="max-h-370 overflow-y-auto">
               {pinDetail?.comments?.map((item) => (
@@ -144,13 +161,13 @@ const PinDetail = ({ user }) => {
               ))}
             </div>
             <div className="flex flex-wrap mt-6 gap-3">
-              <Link to={`/user-profile/${user._id}`}>
+              {/* <Link to={`/user-profile/${user._id}`}>
                 <img
                   src={user.image}
                   className="w-10 h-10 rounded-full cursor-pointer"
                   alt="user-profile"
                 />
-              </Link>
+              </Link> */}
               <input
                 className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-2xl focus:border-gray-300"
                 type="text"
