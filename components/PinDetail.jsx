@@ -98,9 +98,12 @@ const PinDetail = () => {
     <>
       {pinDetail && (
         <div
-          className="flex xl:flex-row flex-col m-auto bg-white"
+          className="flex xl:flex-row flex-col m-auto dark:bg-nft-dark bg-white"
           style={{ maxWidth: '1500px', borderRadius: '32px' }}
         >
+          <div className="flex justify-center items-center mt-5 mb-5 font-poppins font-semibold text-2xl">
+            Pin Details
+          </div>
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-t-3xl rounded-b-lg"

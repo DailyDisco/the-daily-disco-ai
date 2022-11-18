@@ -102,7 +102,10 @@ const CreateImagePost = () => {
           Please add all fields.
         </p>
       )}
-      <div className=" flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5  w-full">
+      <div>
+        <p className="text-2xl font-bold font-poppins">Post your creation!</p>
+      </div>
+      <div className=" flex lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
           <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
             {loading && <Spinner />}
@@ -149,7 +152,8 @@ const CreateImagePost = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-full">
+        <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-4/5">
+          {/* the next block of code is for the logged in user's profile. */}
           {/* {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
               <img
@@ -165,21 +169,21 @@ const CreateImagePost = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title"
-            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+            className="outline-none text-2xl sm:text-2xl font-bold border-b-2 border-gray-200 p-2"
           />
           <input
             type="text"
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="Write a short description"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
           />
           <input
             type="url"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
           />
 
           <div className="flex flex-col">

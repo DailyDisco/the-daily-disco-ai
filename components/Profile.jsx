@@ -7,7 +7,6 @@ import { getAuth } from 'firebase/auth'; // setPersistence
 import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
-import { AiOutlineLogout } from 'react-icons/ai';
 // import Image from 'next/image';
 import MasonryLayout from './MasonryLayout';
 // import Spinner from './Spinner';
@@ -41,8 +40,6 @@ const profile = () => {
       : localStorage.clear();
 
   useEffect(() => {
-    // console.log('start of useEffect for loading user');
-    // console.log('userId we are sending', userAuth.uid);
     const query = userQuery(userInfo?.uid);
     console.log('query', query);
     client.fetch(query).then((data) => {
@@ -97,9 +94,6 @@ const profile = () => {
               <p>{userAuth.displayName}</p>
             </h1>
             <div className="absolute top-0 z-1 -right-5 p-2">
-              {/* {console.log(userAuth.uid, userAuth._id)} */}
-              {/* {userAuth.uid === userAuth._id && <Logout />} */}
-              {/* <AiOutlineLogout color="red" fontSize={21} /> */}
               <Logout />
             </div>
           </div>
