@@ -6,10 +6,10 @@ import Feed from './Feed';
 import Pin from './Pin';
 
 import Button from './Button';
-import Login from './Login';
-import Logout from './Logout';
+// import Login from '../pages/Login';
+import Logout from '../pages/Logout';
 
-import Profile from './Profile';
+import Profile from '../pages/Profile';
 import PhotographyCard from './PhotographyCard';
 import LandingPage from './LandingPage';
 import CreateImagePost from './CreateImagePost';
@@ -24,7 +24,7 @@ export {
   Feed,
   Banner,
   PhotographyCard,
-  Login,
+  // Login,
   Pin,
   Profile,
   LandingPage,

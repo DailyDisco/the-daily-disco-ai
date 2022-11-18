@@ -8,14 +8,14 @@ import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 // import Image from 'next/image';
-import MasonryLayout from './MasonryLayout';
+import MasonryLayout from '../components/MasonryLayout';
 // import Spinner from './Spinner';
 import {
   userQuery,
   userCreatedPinsQuery,
   userSavedPinsQuery,
 } from '../utils/data';
-import { client } from '../pages/client';
+import { client } from './client';
 import Logout from './Logout';
 // import CreateImagePost from './CreateImagePost';
 

@@ -2,13 +2,16 @@ import { useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
+import { CgProfile } from 'react-icons/cg';
+import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
-import Login from './Login';
-import Logout from './Logout';
+import Login from '../pages/Login';
+import Logout from '../pages/Logout';
+import CreateImagePost from './CreateImagePost';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
@@ -105,8 +108,19 @@ const navbar = () => {
         <div className="flex flex-1 flex-row justify-end"> </div>
 
         <div className="flex flex-row items-center">
-          {user ? <Logout /> : <Login />}
-          {/* {user ? <p className="hidden">Welcome</p> : <Login />} */}
+          {/* {user && <CreateImagePost/>} */}
+          {/* {user ? <Logout /> : <Login />} */}
+          {user ? <p className="hidden">Welcome</p> : <Login />}
+          <div className="justify-center items-center mr-5 text-2xl">
+            <Link href="/Profile" passHref>
+              <CgProfile />
+            </Link>
+          </div>
+          {/* <div className="justify-center items-center mr-5 text-2xl">
+            <Link href="/CreateImagePost" passHref>
+              <MdOutlineAddAPhoto />
+            </Link>
+          </div> */}
         </div>
         <div className="flex flex-initial flex-row justify-end">
           <div className="flex items-center mr-2">

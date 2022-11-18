@@ -9,8 +9,9 @@ import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Route, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { CgProfile } from 'react-icons/cg';
 import { initFirebase } from '../firebase/firebaseApp';
-import { client } from '../pages/client';
+import { client } from './client';
 
 const login = () => {
   initFirebase();
@@ -73,7 +74,7 @@ const login = () => {
         <div className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none">
           <div className="flex items-center justify-center mr-5">
             <FcGoogle className="mr-3 h-7 w-7" />
-            <div className="text-xl font-bold ">Login or Sign Up</div>
+            <div className="text-xl font-bold ">Login</div>
           </div>
         </div>
       </button>
