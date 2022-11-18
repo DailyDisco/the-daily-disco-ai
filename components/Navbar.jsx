@@ -8,6 +8,7 @@ import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
 import Login from './Login';
+import Logout from './Logout';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
@@ -104,8 +105,8 @@ const navbar = () => {
         <div className="flex flex-1 flex-row justify-end"> </div>
 
         <div className="flex flex-row items-center">
-          {/* {user ? <Logout /> : <Login />} */}
-          {user ? <p className="hidden">Welcome</p> : <Login />}
+          {user ? <Logout /> : <Login />}
+          {/* {user ? <p className="hidden">Welcome</p> : <Login />} */}
         </div>
         <div className="flex flex-initial flex-row justify-end">
           <div className="flex items-center mr-2">

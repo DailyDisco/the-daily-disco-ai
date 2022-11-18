@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
@@ -15,9 +15,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
 import { client, urlFor } from '../pages/client';
-import { fetchUser } from '../utils/fetchUser';
 
-const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
+const Pin = ({
+  pin: { postedBy, image, _id, destination, save },
+}) => {
   // states that activate when you hover over the image
   const [postHovered, setPostHovered] = useState(false);
   // states that activate when you save a post
@@ -26,6 +27,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   const router = useRouter();
 
   // this gives us the current user using a util function so that we don't have to repeat code
+  console.log('starting');
   const auth = getAuth();
   const [user] = useAuthState(auth);
   console.log('uid on pin component', user.uid);
@@ -35,9 +37,8 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
   // eslint-disable-next-line no-unsafe-optional-chaining
-  const alreadySaved = !!(save?.filter(
-    (item) => item.postedBy._id === user.uid
-  )?.length);
+  const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.uid)
+    ?.length);
 
   // this is for users to save their favorite posts
   const savePin = (id) => {

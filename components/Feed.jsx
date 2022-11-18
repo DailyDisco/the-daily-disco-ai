@@ -17,9 +17,11 @@ const Feed = () => {
   useEffect(() => {
     setloading(true);
     if (categoryId) {
+      console.log('categoryId', categoryId);
       const query = searchQuery(categoryId);
       client.fetch(query).then((data) => {
         setPins(data);
+        console.log('data', data);
         setloading(false);
         console.log('success');
       });
@@ -41,6 +43,11 @@ const Feed = () => {
 
   return (
     <div>
+      <div className="">
+        <h3 className="flex justify-center items-center text-2xl font-bold mb-2 mt-5">
+          Home Feed
+        </h3>
+      </div>
       <div>{pins && <MasonryLayout pins={pins} />}</div>
     </div>
   );
