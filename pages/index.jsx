@@ -8,7 +8,7 @@ import {
   Footer,
   LandingPage,
   PhotographyCard,
-  Profile,
+  // Profile,
   PinDetail,
 } from '../components'; // { Banner }
 
