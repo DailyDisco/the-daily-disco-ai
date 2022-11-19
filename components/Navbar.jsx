@@ -120,11 +120,11 @@ const navbar = () => {
           {user ? <p className="hidden">Welcome</p> : <Login />}
           {user ? (
             <div className="flex">
-              <div className="justify-center items-center mr-5 text-2xl">
+              {/* <div className="justify-center items-center mr-5 text-2xl">
                 <Link href="/Profile" passHref>
                   <CgProfile />
                 </Link>
-              </div>
+              </div> */}
               <div className="justify-center items-center mr-7 text-2xl">
                 <Link href="/CreateImagePost" passHref>
                   <MdOutlineAddAPhoto />

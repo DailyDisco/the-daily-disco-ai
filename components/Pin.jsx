@@ -32,7 +32,6 @@ const Pin = ({
   const [user] = useAuthState(auth);
   console.log('uid on pin component', user.uid);
   console.log(_id);
-  // console.log(localStorage)
 
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined

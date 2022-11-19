@@ -8,16 +8,15 @@ import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 // import Image from 'next/image';
-import MasonryLayout from '../components/MasonryLayout';
+import MasonryLayout from './MasonryLayout';
 // import Spinner from './Spinner';
 import {
   userQuery,
   userCreatedPinsQuery,
   userSavedPinsQuery,
 } from '../utils/data';
-import { client } from './client';
-import Logout from './Logout';
-// import CreateImagePost from './CreateImagePost';
+import { client } from '../pages/client';
+import Logout from '../pages/Logout';
 
 const profile = () => {
   const randomImage =
@@ -34,6 +33,7 @@ const profile = () => {
   const { userId } = router.query;
   const auth = getAuth();
   const [userAuth] = useAuthState(auth);
+
   const userInfo =
     localStorage.getItem('user') !== 'undefined'
       ? JSON.parse(localStorage.getItem('user'))
