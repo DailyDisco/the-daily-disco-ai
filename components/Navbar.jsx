@@ -1,4 +1,4 @@
-import { useState } from 'react'; // useEffect, useContext
+import { useEffect, useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
@@ -14,6 +14,13 @@ import Logout from '../pages/Logout';
 import CreateImagePost from '../pages/CreateImagePost';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
+  useEffect(() => {
+    const userInfo =
+      localStorage.getItem('user') !== 'undefined'
+        ? JSON.parse(localStorage.getItem('user'))
+        : localStorage.clear();
+  }, []);
+
   const generateLink = (i) => {
     switch (i) {
       case 0:
