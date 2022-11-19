@@ -9,10 +9,10 @@ import Button from './Button';
 // import Login from '../pages/Login';
 import Logout from '../pages/Logout';
 
-import Profile from '../pages/Profile';
+// import Profile from './Profile';
 import PhotographyCard from './PhotographyCard';
 import LandingPage from './LandingPage';
-import CreateImagePost from './CreateImagePost';
+import CreateImagePost from '../pages/CreateImagePost';
 import PinDetail from './PinDetail';
 // import CommentPost from './CommentPost';
 
@@ -26,7 +26,7 @@ export {
   PhotographyCard,
   // Login,
   Pin,
-  Profile,
+  // Profile,
   LandingPage,
   CreateImagePost,
   Logout,

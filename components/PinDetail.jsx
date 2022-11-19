@@ -195,7 +195,11 @@ const PinDetail = () => {
           More like this
         </h2>
       )}
-      {pins ? <MasonryLayout pins={pins} /> : <p>Loading pin details</p>}
+      {pins ? (
+        <MasonryLayout pins={pins} />
+      ) : (
+        <p className="flex items-center justify-center">Loading pin details</p>
+      )}
     </>
   );
 };

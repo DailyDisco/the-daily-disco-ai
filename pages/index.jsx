@@ -30,9 +30,6 @@ const Home = () => {
             {/* <div>
               <PinDetail />
             </div> */}
-            {/* <div>
-              <CreateImagePost />
-            </div> */}
             {/* <MobileDock /> */}
           </div>
         ) : (

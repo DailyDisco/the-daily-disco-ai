@@ -11,7 +11,7 @@ import { initFirebase } from '../firebase/firebaseApp';
 import images from '../assets';
 import Login from '../pages/Login';
 import Logout from '../pages/Logout';
-import CreateImagePost from './CreateImagePost';
+import CreateImagePost from '../pages/CreateImagePost';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
@@ -35,7 +35,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
           isMobile && 'flex-col h-full mt-20'
         }`}
       >
-        {['Home', 'Img Generator', 'About'].map((item, i) => (
+        {['Home', 'Try It Out', 'About'].map((item, i) => (
           <li
             key={i}
             onClick={() => {
@@ -111,19 +111,25 @@ const navbar = () => {
           {/* {user && <CreateImagePost/>} */}
           {/* {user ? <Logout /> : <Login />} */}
           {user ? <p className="hidden">Welcome</p> : <Login />}
-          <div className="justify-center items-center mr-5 text-2xl">
-            <Link href="/Profile" passHref>
-              <CgProfile />
-            </Link>
-          </div>
-          {/* <div className="justify-center items-center mr-5 text-2xl">
-            <Link href="/CreateImagePost" passHref>
-              <MdOutlineAddAPhoto />
-            </Link>
-          </div> */}
+          {user ? (
+            <div className="flex">
+              <div className="justify-center items-center mr-5 text-2xl">
+                <Link href="/Profile" passHref>
+                  <CgProfile />
+                </Link>
+              </div>
+              <div className="justify-center items-center mr-7 text-2xl">
+                <Link href="/CreateImagePost" passHref>
+                  <MdOutlineAddAPhoto />
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <p className="hidden">Welcome</p>
+          )}
         </div>
         <div className="flex flex-initial flex-row justify-end">
-          <div className="flex items-center mr-2">
+          <div className="flex items-center mr-3">
             <input
               type="checkbox"
               className="checkbox"
@@ -150,7 +156,7 @@ const navbar = () => {
           </div>
         </div>
         {/* this is our mobile navigation bar */}
-        <div className="hidden md:flex ml-2">
+        <div className="hidden md:flex ml-3 mr-1">
           {isOpen ? (
             <Image
               src={images.cross}
