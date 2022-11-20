@@ -139,7 +139,8 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   {destination.length > 15 ? `${destination.slice(0,15)}...` : destination}
                 </a>
               )} */}
-              {postedBy?._id === user.uid && (
+              {/* the next block is for deleting the pictures */}
+              {/* {postedBy?._id === user.uid && (
                 <button
                   type="button"
                   onClick={(e) => {
@@ -150,7 +151,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 >
                   <AiTwotoneDelete />
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         )}
