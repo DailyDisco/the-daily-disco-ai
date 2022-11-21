@@ -96,16 +96,28 @@ const CreateImagePost = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
-      {fields && (
+    <div className="flex flex-col mt-5 lg:h-4/5">
+      {/* {fields && (
         <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in ">
           Please add all fields.
         </p>
-      )}
+      )} */}
       <div>
-        <p className="text-2xl font-bold font-poppins">Post your creation!</p>
+        <p className="flex text-2xl justify-center items-center font-bold font-poppins mb-3">
+          Post your creation!
+        </p>
       </div>
-      <div className=" flex lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
+      <div>
+        <iframe
+          className="iframe"
+          title="stableDiffusion"
+          frameBorder="0"
+          width="100%"
+          height="650px"
+          src="https://inpainter.dailydisco.repl.co/paint?embed=true"
+        />
+      </div>
+      <div className=" flex ml-12 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
           <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
             {loading && <Spinner />}

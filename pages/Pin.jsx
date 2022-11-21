@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 // Pin = Image
 // you can save, download, go to url of image
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 // import Image from 'next/image';
@@ -14,11 +14,9 @@ import { v4 as uuidv4 } from 'uuid';
 // url for is a utility function that comes with sanity that lets us look for th url of the image
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
-import { client, urlFor } from '../pages/client';
+import { client, urlFor } from './client';
 
-const Pin = ({
-  pin: { postedBy, image, _id, destination, save },
-}) => {
+const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   // states that activate when you hover over the image
   const [postHovered, setPostHovered] = useState(false);
   // states that activate when you save a post
@@ -30,43 +28,43 @@ const Pin = ({
   console.log('starting');
   const auth = getAuth();
   const [user] = useAuthState(auth);
-  console.log('uid on pin component', user.uid);
+
   console.log(_id);
 
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
   // eslint-disable-next-line no-unsafe-optional-chaining
-  const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.uid)
-    ?.length);
+  // const alreadySaved = !!save?.filter((item) => item.postedBy._id === user.uid)
+  //   ?.length;
 
   // this is for users to save their favorite posts
-  const savePin = (id) => {
-    if (!alreadySaved) {
-      setSavingPost(true);
-      client
-        .patch(id)
-        // patch the post with an id and add the user to the save array
-        .setIfMissing({ save: [] })
-        // insert a document into the array
-        .insert('after', 'save[-1]', [
-          {
-            // this will generate a unique id for the user
-            _key: uuidv4(),
-            userId: user.uid,
-            postedBy: {
-              _type: 'reference',
-              _ref: user.uid,
-            },
-          },
-        ])
-        .commit()
-        // do whatever else you want to do after the post has been saved
-        .then(() => {
-          window.location.reload();
-          setSavingPost(false);
-        });
-    }
-  };
+  // const savePin = (id) => {
+  //   if (!alreadySaved) {
+  //     setSavingPost(true);
+  //     client
+  //       .patch(id)
+  //       // patch the post with an id and add the user to the save array
+  //       .setIfMissing({ save: [] })
+  //       // insert a document into the array
+  //       .insert('after', 'save[-1]', [
+  //         {
+  //           // this will generate a unique id for the user
+  //           _key: uuidv4(),
+  //           userId: user.uid,
+  //           postedBy: {
+  //             _type: 'reference',
+  //             _ref: user.uid,
+  //           },
+  //         },
+  //       ])
+  //       .commit()
+  //       // do whatever else you want to do after the post has been saved
+  //       .then(() => {
+  //         window.location.reload();
+  //         setSavingPost(false);
+  //       });
+  //   }
+  // };
 
   const deletePin = (id) => {
     client.delete(id).then(() => {
@@ -81,7 +79,7 @@ const Pin = ({
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
         // this click handler will take you to the post page
-        onClick={() => router.push(`/pin-detail/${user.uid}`)}
+        // onClick={() => router.push(`/pin-detail/${user.uid}`)}
         className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
       >
         <img
@@ -109,7 +107,7 @@ const Pin = ({
                 </a>
               </div>
               {/* if the picture is already save */}
-              {alreadySaved ? (
+              {/* {alreadySaved ? (
                 <button
                   type="button"
                   className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
@@ -127,7 +125,7 @@ const Pin = ({
                 >
                   {savingPost ? 'Saving...' : 'Save'}
                 </button>
-              )}
+              )} */}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
               {/* {destination && (

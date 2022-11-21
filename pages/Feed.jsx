@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { client } from '../pages/client';
-import MasonryLayout from './MasonryLayout';
-import Spinner from './Spinner';
+import { client } from './client';
+import MasonryLayout from '../components/MasonryLayout';
+import Spinner from '../components/Spinner';
 import { feedQuery, searchQuery } from '../utils/data';
 
 const Feed = () => {

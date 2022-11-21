@@ -2,8 +2,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Banner from './Banner';
 import Spinner from './Spinner';
-import Feed from './Feed';
-import Pin from './Pin';
+import Feed from '../pages/Feed';
+import Pin from '../pages/Pin';
 
 import Button from './Button';
 // import Login from '../pages/Login';

@@ -5,6 +5,7 @@ import Link from 'next/link'; // Link is a component that is used to link to oth
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { getAuth } from 'firebase/auth';
+import { RiHomeHeartLine } from 'react-icons/ri';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
 
@@ -120,11 +121,16 @@ const navbar = () => {
           {user ? <p className="hidden">Welcome</p> : <Login />}
           {user ? (
             <div className="flex">
-              {/* <div className="justify-center items-center mr-5 text-2xl">
-                <Link href="/Profile" passHref>
+              <div className="justify-center items-center mr-5 text-2xl">
+                <Link href="/" passHref>
                   <CgProfile />
                 </Link>
-              </div> */}
+              </div>
+              <div className="justify-center items-center mr-5 text-2xl">
+                <Link href="/Feed" passHref>
+                  <RiHomeHeartLine />
+                </Link>
+              </div>
               <div className="justify-center items-center mr-7 text-2xl">
                 <Link href="/CreateImagePost" passHref>
                   <MdOutlineAddAPhoto />

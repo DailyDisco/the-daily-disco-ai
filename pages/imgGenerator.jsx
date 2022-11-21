@@ -6,7 +6,7 @@ const imgGenerator = () => {
         title="stableDiffusion"
         frameBorder="0"
         width="100%"
-        height="600px"
+        height="650px"
         src="https://inpainter.dailydisco.repl.co/paint?embed=true"
       />
     </div>
