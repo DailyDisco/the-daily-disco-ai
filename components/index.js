@@ -3,7 +3,7 @@ import Footer from './Footer';
 import Banner from './Banner';
 import Spinner from './Spinner';
 import Feed from '../pages/Feed';
-import Pin from '../pages/Pin';
+// import Pin from '../pages/Pin';
 
 import Button from './Button';
 // import Login from '../pages/Login';
@@ -27,7 +27,7 @@ export {
   Banner,
   PhotographyCard,
   // Login,
-  Pin,
+  // Pin,
   Profile,
   LandingPage,
   CreateImagePost,
