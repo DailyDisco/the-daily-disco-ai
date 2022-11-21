@@ -66,11 +66,11 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   //   }
   // };
 
-  const deletePin = (id) => {
-    client.delete(id).then(() => {
-      window.location.reload();
-    });
-  };
+  // const deletePin = (id) => {
+  //   client.delete(id).then(() => {
+  //     window.location.reload();
+  //   });
+  // };
 
   return (
     <div className="m-2">
