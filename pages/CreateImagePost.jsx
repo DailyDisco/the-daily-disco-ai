@@ -110,7 +110,7 @@ const CreateImagePost = () => {
             src="https://inpainter.dailydisco.repl.co/paint?embed=true"
           />
         </div>
-        <div className=" flex ml-9 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
+        <div className=" flex ml-9 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-3/5  w-full">
           <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
             <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
               {loading && <Spinner />}
@@ -162,14 +162,14 @@ const CreateImagePost = () => {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Add your title"
+              placeholder="Title"
               className="outline-none text-2xl sm:text-2xl font-bold border-b-2 border-gray-200 p-2"
             />
             <input
               type="text"
               value={about}
               onChange={(e) => setAbout(e.target.value)}
-              placeholder="Write a short description"
+              placeholder="A description"
               className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
             />
             <div className="flex flex-col">
@@ -181,7 +181,7 @@ const CreateImagePost = () => {
                   onChange={(e) => {
                     setCategory(e.target.value);
                   }}
-                  className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+                  className="outline-none w-5/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
                 >
                   <option value="others" className="sm:text-bg bg-white">
                     Select Category
