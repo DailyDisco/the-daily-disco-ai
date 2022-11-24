@@ -94,7 +94,7 @@ const CreateImagePost = () => {
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
-      <div className="w-full minmd:w-4/5">
+      <div className="w-full minmd:w-3/5">
         <div>
           <p className="flex text-2xl justify-center items-center font-bold font-poppins mb-3">
             Post your creation!
@@ -106,7 +106,7 @@ const CreateImagePost = () => {
             title="stableDiffusion"
             frameBorder="0"
             width="100%"
-            height="650px"
+            height="600px"
             src="https://inpainter.dailydisco.repl.co/paint?embed=true"
           />
         </div>
