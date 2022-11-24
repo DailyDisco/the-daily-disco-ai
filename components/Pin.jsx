@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 // url for is a utility function that comes with sanity that lets us look for th url of the image
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
-import { client, urlFor } from './client';
+import { client, urlFor } from '../pages/client';
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   // states that activate when you hover over the image
@@ -25,7 +25,6 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const router = useRouter();
 
   // this gives us the current user using a util function so that we don't have to repeat code
-  console.log('starting');
   const auth = getAuth();
   const [user] = useAuthState(auth);
 
@@ -140,7 +139,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 </a>
               )} */}
               {/* the next block is for deleting the pictures */}
-              {/* {postedBy?._id === user.uid && (
+              {postedBy?._id === user.uid && (
                 <button
                   type="button"
                   onClick={(e) => {
@@ -151,7 +150,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 >
                   <AiTwotoneDelete />
                 </button>
-              )} */}
+              )}
             </div>
           </div>
         )}
