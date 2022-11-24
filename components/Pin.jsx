@@ -127,17 +127,6 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
               )} */}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
-              {/* {destination && (
-                <a
-                  href={destination}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:100 hover:shadow-md"
-                >
-                  <BsFillArrowUpRightCircleFill />
-                  {destination.length > 15 ? `${destination.slice(0,15)}...` : destination}
-                </a>
-              )} */}
               {/* the next block is for deleting the pictures */}
               {postedBy?._id === user.uid && (
                 <button
@@ -146,7 +135,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     e.stopPropagation();
                     deletePin(_id);
                   }}
-                  className="bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark text-base rounded-3xl hover:shadow-md outlined-none"
+                  className="dark:bg-black bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark text-base rounded-3xl hover:shadow-md outlined-none"
                 >
                   <AiTwotoneDelete />
                 </button>

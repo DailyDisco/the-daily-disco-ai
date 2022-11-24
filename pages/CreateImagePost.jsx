@@ -16,8 +16,6 @@ const CreateImagePost = () => {
   const [title, setTitle] = useState('');
   // description of the post
   const [about, setAbout] = useState('');
-  // url of the image
-  const [destination, setDestination] = useState('');
   const [loading, setLoading] = useState(false);
   const [fields, setFields] = useState(null);
   const [category, setCategory] = useState(null);
@@ -61,12 +59,11 @@ const CreateImagePost = () => {
   };
 
   const savePin = () => {
-    if (title && about && destination && imageAsset?._id && category) {
+    if (title && about && imageAsset?._id && category) {
       const doc = {
         _type: 'pin',
         title,
         about,
-        destination,
         image: {
           _type: 'image',
           asset: {
@@ -84,7 +81,7 @@ const CreateImagePost = () => {
 
       client.create(doc).then(() => {
         console.log('Document created', doc);
-        // router.push('/');
+        router.push('/Feed');
       });
     } else {
       setFields(true);
@@ -96,14 +93,8 @@ const CreateImagePost = () => {
   };
 
   return (
-    // <div className="flex flex-col mt-5 lg:h-4/5">
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-4/5">
-        {/* {fields && (
-        <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in ">
-          Please add all fields.
-        </p>
-      )} */}
         <div>
           <p className="flex text-2xl justify-center items-center font-bold font-poppins mb-3">
             Post your creation!
@@ -119,7 +110,7 @@ const CreateImagePost = () => {
             src="https://inpainter.dailydisco.repl.co/paint?embed=true"
           />
         </div>
-        <div className=" flex ml-12 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
+        <div className=" flex ml-9 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-4/5  w-full">
           <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
             <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
               {loading && <Spinner />}
@@ -167,17 +158,6 @@ const CreateImagePost = () => {
           </div>
 
           <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-4/5">
-            {/* the next block of code is for the logged in user's profile. */}
-            {/* {user && (
-            <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-              <img
-                src={user.photoURL}
-                className="w-10 h-10 rounded-full"
-                alt="user-profile"
-              />
-              <p className="font-bold">{user.userName}</p>
-            </div>
-          )} */}
             <input
               type="text"
               value={title}
@@ -192,14 +172,6 @@ const CreateImagePost = () => {
               placeholder="Write a short description"
               className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
             />
-            <input
-              type="url"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              placeholder="Add a destination link"
-              className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
-            />
-
             <div className="flex flex-col">
               <div>
                 <p className="mb-2 font-semibold text:lg sm:text-xl">
@@ -233,6 +205,11 @@ const CreateImagePost = () => {
                   Save Pin
                 </button>
               </div>
+              {fields && (
+                <p className="text-red-500 mb-3 text-xl transition-all duration-150 ease-in ">
+                  Please add all fields.
+                </p>
+              )}
             </div>
           </div>
         </div>

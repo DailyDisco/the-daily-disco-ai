@@ -110,7 +110,7 @@ const profile = () => {
             >
               Created
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={(e) => {
                 setText(e.target.textContent);
@@ -121,7 +121,7 @@ const profile = () => {
               }`}
             >
               Saved
-            </button>
+            </button> */}
           </div>
           {pins?.length ? (
             <div className="px-2">
