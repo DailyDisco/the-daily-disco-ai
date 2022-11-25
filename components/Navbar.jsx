@@ -26,9 +26,9 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
       case 0:
         return '/';
       case 1:
-        return '/imgGenerator';
-      case 2:
         return '/about';
+      case 2:
+        return '/imgGenerator';
       case 3:
         return '/blog';
       default:
@@ -42,7 +42,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
           isMobile && 'flex-col h-full mt-20'
         }`}
       >
-        {['Home', 'Try It Out', 'About', 'Blog & Tutorials'].map((item, i) => (
+        {['Home', 'About', 'Try It Out', 'Blog & Tutorials'].map((item, i) => (
           <li
             key={i}
             onClick={() => {
@@ -102,17 +102,17 @@ const navbar = () => {
               <Image
                 src={images.D}
                 objectFit="contain"
-                width={64}
-                height={64}
+                width={32}
+                height={32}
                 alt="logo"
               />
               <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">
-                Daily Disco
+                The Daily Disco
               </p>
             </div>
           </Link>
         </div>
-        <div className="flex flex-1 flex-row justify-end"> </div>
+        {/* <div className="flex flex-1 flex-row justify-end"> </div> */}
 
         <div className="flex flex-row items-center">
           {/* {user && <CreateImagePost/>} */}

@@ -71,7 +71,7 @@ const login = () => {
         <div className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none">
           <div className="flex items-center justify-center mr-3">
             <FcGoogle className="mr-3 h-7 w-7" />
-            <div className="text-xl font-bold ">Login</div>
+            <div className="text-lg font-bold ">Login</div>
           </div>
         </div>
       </button>
