@@ -7,7 +7,7 @@ const LandingPage = () => {
       <div className="mt-0">
         <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
           <h1 className="flex-1 font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold sm:mb-4">
-            Recent AI-prompt assisted art using Stable Diffusion
+            Recently shared AI assisted art using Stable Diffusion
           </h1>
         </div>
         <p className="flex-1 mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
