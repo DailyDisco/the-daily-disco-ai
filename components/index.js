@@ -21,7 +21,7 @@ import PinDetail from './PinDetail';
 
 // blog
 // import BlogCategories from './BlogCategories';
-import PostCard from './PostCard';
+import BlogPostCard from './BlogPostCard';
 // import BlogPostWidget from './BlogPostWidget';
 import BlogAuthor from './BlogAuthor';
 // import BlogComments from './BlogComments';
@@ -44,7 +44,7 @@ export {
   Logout,
   PinDetail,
   // BlogCategories,
-  PostCard,
+  BlogPostCard,
   // BlogPostWidget,
   BlogAuthor,
   // BlogComments,
