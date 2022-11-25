@@ -23,6 +23,10 @@ import PinDetail from './PinDetail';
 import Categories from './Categories';
 import PostCard from './PostCard';
 import PostWidget from './PostWidget';
+// import BlogAuthor from './BlogAuthor';
+// import BlogComments from './BlogComments';
+// import BlogCommentsForm from './BlogCommentsForm';
+// import BlogPostDetail from './BlogPostDetail';
 
 export {
   // Login,
@@ -42,4 +46,8 @@ export {
   Categories,
   PostCard,
   PostWidget,
+  // BlogAuthor,
+  // BlogComments,
+  // BlogCommentsForm,
+  // BlogPostDetail,
 };
