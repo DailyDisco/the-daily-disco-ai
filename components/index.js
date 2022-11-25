@@ -20,13 +20,13 @@ import CreateImagePost from '../pages/CreateImagePost';
 import PinDetail from './PinDetail';
 
 // blog
-import Categories from './Categories';
+// import BlogCategories from './BlogCategories';
 import PostCard from './PostCard';
-import PostWidget from './PostWidget';
-// import BlogAuthor from './BlogAuthor';
+// import BlogPostWidget from './BlogPostWidget';
+import BlogAuthor from './BlogAuthor';
 // import BlogComments from './BlogComments';
 // import BlogCommentsForm from './BlogCommentsForm';
-// import BlogPostDetail from './BlogPostDetail';
+import BlogPostDetail from './BlogPostDetail';
 
 export {
   // Login,
@@ -43,11 +43,11 @@ export {
   CreateImagePost,
   Logout,
   PinDetail,
-  Categories,
+  // BlogCategories,
   PostCard,
-  PostWidget,
-  // BlogAuthor,
+  // BlogPostWidget,
+  BlogAuthor,
   // BlogComments,
   // BlogCommentsForm,
-  // BlogPostDetail,
+  BlogPostDetail,
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'; // useEffect, useContext
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link'; // Link is a component that is used to link to other pages
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
@@ -12,7 +12,6 @@ import { initFirebase } from '../firebase/firebaseApp';
 import images from '../assets';
 import Login from '../pages/Login';
 import Logout from '../pages/Logout';
-import CreateImagePost from '../pages/CreateImagePost';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   useEffect(() => {
@@ -31,7 +30,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
       case 2:
         return '/about';
       case 3:
-        return '/';
+        return '/blog';
       default:
         return '/';
     }
@@ -43,7 +42,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
           isMobile && 'flex-col h-full mt-20'
         }`}
       >
-        {['Home', 'Try It Out', 'About'].map((item, i) => (
+        {['Home', 'Try It Out', 'About', 'Blog & Tutorials'].map((item, i) => (
           <li
             key={i}
             onClick={() => {
@@ -103,8 +102,8 @@ const navbar = () => {
               <Image
                 src={images.D}
                 objectFit="contain"
-                width={32}
-                height={32}
+                width={64}
+                height={64}
                 alt="logo"
               />
               <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">
