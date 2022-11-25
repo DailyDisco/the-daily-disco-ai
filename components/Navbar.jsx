@@ -107,7 +107,7 @@ const navbar = () => {
                 alt="logo"
               />
               <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">
-                The Daily Disco
+                Daily Disco
               </p>
             </div>
           </Link>

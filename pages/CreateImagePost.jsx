@@ -106,11 +106,11 @@ const CreateImagePost = () => {
             title="stableDiffusion"
             frameBorder="0"
             width="100%"
-            height="600px"
+            height="640px"
             src="https://inpainter.dailydisco.repl.co/paint?embed=true"
           />
         </div>
-        <div className=" flex ml-9 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-3/5  w-full">
+        <div className=" flex ml-12 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-3/5  w-full">
           <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
             <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
               {loading && <Spinner />}
@@ -126,9 +126,9 @@ const CreateImagePost = () => {
                       <p className="text-lg">Click to upload</p>
                     </div>
 
-                    <p className="mt-32 text-gray-400">
-                      Recommendation: Use high-quality JPG, JPEG, SVG, PNG, GIF
-                      or TIFF less than 20MB
+                    <p className="flex-wrap mt-32 text-gray-400">
+                      Recommendation: Use high-quality JPG, JPEG, SVG, or PNG
+                      less than 20MB
                     </p>
                   </div>
                   <input
