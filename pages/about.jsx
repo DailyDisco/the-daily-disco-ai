@@ -20,12 +20,7 @@ export default function about() {
             </p>
           </div>
           {/* <div className="mt-5">
-            <p>
-              We also host a Stable Diffusion gallery. If you would like your
-              prompt created feel free to email me. We are currently working on
-              integrated user self-input for our site. Sign up for our
-              newsletter to know when that is available!
-            </p>
+
           </div> */}
           <div className="mt-5">
             <p>

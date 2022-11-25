@@ -29,9 +29,6 @@ const Home = () => {
               <Profile user={user} />
             </div>
             {/* <div>
-              <Feed user={user} />
-            </div> */}
-            {/* <div>
               <PinDetail />
             </div> */}
             {/* <MobileDock /> */}
