@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    transpilePackages: ['@next-auth/firebase-adapter'],
+  },
   images: {
     domains: [
       'cdn.sanity.io',
