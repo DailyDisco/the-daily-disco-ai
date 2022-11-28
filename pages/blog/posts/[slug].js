@@ -5,7 +5,7 @@ import { getPosts, getPostDetails } from '../../../services';
 import {
   BlogPostDetail,
   //   BlogCategories,
-  //   BlogPostWidget,
+  BlogPostWidget,
   BlogAuthor,
   //   BlogComments,
   //   BlogCommentsForm,
@@ -21,16 +21,17 @@ const BlogPostDetails = ({ post }) => {
             <BlogAuthor author={post.author} />
             {/* <BlogCommentsForm slug={post.slug} />
             <BlogComments slug={post.slug} /> */}
-          </div>
-          {/* <div className="col-span-1 lg:col-span-4">
-            <div className="relative lg:sticky top-8">
-              <BlockPostWidget
-                slug={post.slug}
-                categories={post.categories.map((category) => category.slug)}
-              />
-              <Categories />
+            <div className="col-span-1 lg:col-span-4">
+              <div className="relative lg:sticky top-8">
+                <BlogPostWidget
+                  className=""
+                  slug={post.slug}
+                  categories={post.categories.map((category) => category.slug)}
+                />
+                {/* <Categories /> */}
+              </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
