@@ -16,7 +16,7 @@ import Pin from './Pin';
 import Profile from './Profile';
 import PhotographyCard from './PhotographyCard';
 import LandingPage from './LandingPage';
-import CreateImagePost from '../pages/CreateImagePost';
+// import CreateImagePost from '../pages/CreateImagePost';
 import PinDetail from './PinDetail';
 
 // blog
@@ -41,7 +41,7 @@ export {
   Pin,
   Profile,
   LandingPage,
-  CreateImagePost,
+  // CreateImagePost,
   PinDetail,
   // BlogCategories,
   BlogPostCard,

@@ -115,8 +115,6 @@ const navbar = () => {
         {/* <div className="flex flex-1 flex-row justify-end"> </div> */}
 
         <div className="flex flex-row items-center">
-          {/* {user && <CreateImagePost/>} */}
-          {/* {user ? <Logout /> : <Login />} */}
           {user ? <p className="hidden">Welcome</p> : <Login />}
           {user ? (
             <div className="flex">
@@ -131,7 +129,7 @@ const navbar = () => {
                 </Link>
               </div>
               <div className="justify-center items-center mr-7 text-2xl">
-                <Link href="/CreateImagePost" passHref>
+                <Link href="/user/CreateImagePost" passHref>
                   <MdOutlineAddAPhoto />
                 </Link>
               </div>

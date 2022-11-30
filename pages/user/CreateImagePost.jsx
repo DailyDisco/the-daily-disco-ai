@@ -7,9 +7,9 @@ import { useRouter } from 'next/router';
 
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { categories } from '../utils/data';
-import { client } from './client';
-import Spinner from '../components/Spinner';
+import { categories } from '../../utils/data';
+import { client } from '../client';
+import Spinner from '../../components/Spinner';
 
 const CreateImagePost = () => {
   // title of the post
