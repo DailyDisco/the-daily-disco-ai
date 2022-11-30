@@ -10,8 +10,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
-import Login from '../pages/Login';
-import Logout from '../pages/Logout';
+import Login from './Login';
+import Logout from './Logout';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   useEffect(() => {

@@ -16,7 +16,7 @@ import {
   userSavedPinsQuery,
 } from '../utils/data';
 import { client } from '../pages/client';
-import Logout from '../pages/Logout';
+import Logout from './Logout';
 
 const profile = () => {
   const randomImage =

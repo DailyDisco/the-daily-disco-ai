@@ -7,8 +7,8 @@ import Spinner from './Spinner';
 import Button from './Button';
 
 // Login & Logout
-// import Login from '../pages/Login';
-import Logout from '../pages/Logout';
+import Login from './Login';
+import Logout from './Logout';
 
 // Index, Social Media Profile, Feed, and info pages
 import Feed from '../pages/Feed';
@@ -29,7 +29,8 @@ import BlogAuthor from './BlogAuthor';
 import BlogPostDetail from './BlogPostDetail';
 
 export {
-  // Login,
+  Login,
+  Logout,
   Navbar,
   Footer,
   Button,
@@ -41,7 +42,6 @@ export {
   Profile,
   LandingPage,
   CreateImagePost,
-  Logout,
   PinDetail,
   // BlogCategories,
   BlogPostCard,

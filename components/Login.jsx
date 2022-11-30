@@ -11,7 +11,7 @@ import { Route, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { CgProfile } from 'react-icons/cg';
 import { initFirebase } from '../firebase/firebaseApp';
-import { client } from './client';
+import { client } from '../pages/client';
 
 const login = () => {
   initFirebase();
