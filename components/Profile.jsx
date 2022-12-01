@@ -98,7 +98,7 @@ const profile = () => {
             </div>
           </div>
           <div className="text-center mb-7">
-            <button
+            {/* <button
               type="button"
               onClick={(e) => {
                 setText(e.target.textContent);
@@ -109,7 +109,7 @@ const profile = () => {
               }`}
             >
               Created
-            </button>
+            </button> */}
             {/* <button
               type="button"
               onClick={(e) => {
