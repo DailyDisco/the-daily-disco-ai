@@ -2,15 +2,14 @@ import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { useState } from 'react';
-import Link from 'next/link';
+// import { useState } from 'react';
+// import Link from 'next/link';
 import {
   // Feed,
   Footer,
   LandingPage,
   // MobileDock,
   PhotographyCard,
-  // Profile,
   PinDetail,
   Profile,
 } from '../components'; // { Banner }
@@ -33,9 +32,6 @@ const Home = () => {
               <div>
                 <Profile user={user} />
               </div>
-              {/* <div>
-              <PinDetail />
-            </div> */}
               {/* <MobileDock /> */}
             </div>
           ) : (
