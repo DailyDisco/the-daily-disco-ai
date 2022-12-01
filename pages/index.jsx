@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import Link from 'next/link';
 import {
-  Feed,
+  // Feed,
   Footer,
   LandingPage,
   // MobileDock,

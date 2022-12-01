@@ -39,10 +39,7 @@ const profile = () => {
       ? JSON.parse(localStorage.getItem('user'))
       : localStorage.clear();
 
-  console.log('userInfo', userInfo);
-
   useEffect(() => {
-    // console.log(userInfo);
     const query = userQuery(userInfo?.uid);
     console.log('query', query);
     client.fetch(query).then((data) => {
