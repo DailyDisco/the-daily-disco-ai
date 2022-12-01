@@ -102,9 +102,9 @@ const PinDetail = () => {
           className="flex xl:flex-row flex-col m-auto dark:bg-nft-dark bg-white"
           style={{ maxWidth: '1500px', borderRadius: '32px' }}
         >
-          <div className="flex justify-center items-center mt-5 mb-5 font-poppins font-semibold text-2xl">
-            Pin Details
-          </div>
+          {/* <div className="flex justify-center items-center mt-5 mb-5 font-poppins font-semibold text-2xl">
+            {pinDetail.title}
+          </div> */}
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-t-3xl rounded-b-lg"
@@ -130,10 +130,11 @@ const PinDetail = () => {
               </h1>
               <p className="mt-3">{pinDetail.about}</p>
             </div>
-            <Link
-              href={`/user-profile/${pinDetail?.postedBy._id}`}
-              className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg "
-            >
+            <div className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg ">
+              {/* <Link
+                href={`/user-profile/${pinDetail?.postedBy._id}`}
+                className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg "
+              > */}
               Posted By:
               <img
                 src={pinDetail?.postedBy.image}
@@ -143,7 +144,8 @@ const PinDetail = () => {
               {/* <p className="font-bold">
                 Posted by: {pinDetail?.postedBy.userName.slice(0, 5)}
               </p> */}
-            </Link>
+              {/* </Link> */}
+            </div>
             <h2 className="mt-5 text-2xl">Comments</h2>
             <div className="max-h-370 overflow-y-auto">
               {pinDetail?.comments?.map((item) => (
@@ -194,7 +196,7 @@ const PinDetail = () => {
         <MasonryLayout pins={pins} />
       ) : (
         <p className="flex items-center justify-center center">
-          Loading pin details
+          Loading post details
         </p>
       )}
     </>

@@ -148,16 +148,16 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         href={`/user/user-profile/${postedBy?._id}`}
         className="flex gap-2 mt-2 items-center"
         passHref
-      >
-        <img
-          className="w-8 h-8 rounded-full object-cover"
-          src={postedBy?.image}
-          alt="user-profile"
-        />
-        <p className="font-semibold capitalize">
-          {postedBy?.userName.slice(0, 5)}
-        </p>
-      </Link> */}
+      > */}
+      <img
+        className="w-8 h-8 rounded-full object-cover"
+        src={postedBy?.image}
+        alt="user-profile"
+      />
+      <p className="font-semibold capitalize">
+        {postedBy?.userName.slice(0, 5)}
+      </p>
+      {/* </Link> */}
     </div>
   );
 };
