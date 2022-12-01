@@ -11,7 +11,7 @@ import Login from './Login';
 import Logout from './Logout';
 
 // Index, Social Media Profile, Feed, and info pages
-import Feed from '../pages/Feed';
+// import Feed from '../pages/user/Feed';
 import Pin from './Pin';
 import Profile from './Profile';
 import PhotographyCard from './PhotographyCard';
@@ -35,7 +35,7 @@ export {
   Footer,
   Button,
   Spinner,
-  Feed,
+  // Feed,
   Banner,
   PhotographyCard,
   Pin,
