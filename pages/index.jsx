@@ -5,12 +5,10 @@ import Head from 'next/head';
 // import { useState } from 'react';
 // import Link from 'next/link';
 import {
-  // Feed,
   Footer,
   LandingPage,
   // MobileDock,
   PhotographyCard,
-  PinDetail,
   Profile,
 } from '../components'; // { Banner }
 
