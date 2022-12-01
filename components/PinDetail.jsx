@@ -16,8 +16,6 @@ const PinDetail = () => {
   // use router.query to get the id of the post
   const router = useRouter();
   const { pinId } = router.query;
-  // const { pinId } = useParams();
-
   const auth = getAuth();
   const [user] = useAuthState(auth);
   // const User =
@@ -38,7 +36,8 @@ const PinDetail = () => {
   const fetchPinDetails = () => {
     console.log('fetching pin details');
     console.log('pinId we need to query', pinId);
-    const query = pinDetailQuery('lykpIUqaXTD5Wb28QEQEPY');
+    console.log('pinId', pinId);
+    const query = pinDetailQuery(pinId);
     console.log('query', query);
     if (query) {
       client.fetch(`${query}`).then((data) => {
@@ -89,7 +88,9 @@ const PinDetail = () => {
     return (
       <div>
         <Spinner />
-        <p>Loading post details... </p>
+        <p className="flex justify-center items-center">
+          Loading post details...{' '}
+        </p>
       </div>
     );
   }
@@ -198,10 +199,18 @@ const PinDetail = () => {
       {pins ? (
         <MasonryLayout pins={pins} />
       ) : (
-        <p className="flex items-center justify-center">Loading pin details</p>
+        <p className="flex items-center justify-center center">
+          Loading pin details
+        </p>
       )}
     </>
   );
 };
 
 export default PinDetail;
+
+// export async function getServerSideProps() {
+//   const router = useRouter();
+//   const { pinId } = router.query;
+//   return { props: { pinId } };
+// }

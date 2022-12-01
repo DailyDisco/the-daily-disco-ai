@@ -28,7 +28,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
       case 1:
         return '/about';
       case 2:
-        return '/imgGenerator';
+        return '/test';
       case 3:
         return '/blog';
       default:
@@ -124,7 +124,7 @@ const navbar = () => {
                 </Link>
               </div>
               <div className="justify-center items-center mr-5 text-2xl">
-                <Link href="/Feed" passHref>
+                <Link href="/user/Feed" passHref>
                   <RiHomeHeartLine />
                 </Link>
               </div>

@@ -81,7 +81,7 @@ const CreateImagePost = () => {
 
       client.create(doc).then(() => {
         console.log('Document created', doc);
-        router.push('/Feed');
+        router.push('/user/Feed');
       });
     } else {
       setFields(true);
