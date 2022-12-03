@@ -28,7 +28,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
       case 1:
         return '/about';
       case 2:
-        return '/test';
+        return '/TryItOut';
       case 3:
         return '/blog';
       default:
@@ -76,7 +76,7 @@ const navbar = () => {
 
   return (
     <div>
-      <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
+      <nav className="flexBetween w-full fixed z-50 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
         <div className="flex flex-1 flex-row justify-start">
           <Link href="/" passHref>
             <div

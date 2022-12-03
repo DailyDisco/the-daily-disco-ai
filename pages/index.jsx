@@ -8,7 +8,6 @@ import {
   Footer,
   LandingPage,
   // MobileDock,
-  PhotographyCard,
   Profile,
 } from '../components'; // { Banner }
 
@@ -24,16 +23,16 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="flex justify-center sm:px-4 p-12">
-        <div className="w-full minmd:w-4/5">
+        <div>
           {user ? (
             <div>
-              <div>
+              <div className="w-full minmd:w-4/5 minmd:justify-center minmd:items-center minmd:mx-auto">
                 <Profile user={user} />
               </div>
               {/* <MobileDock /> */}
             </div>
           ) : (
-            <div>
+            <div className="w-full minmd:w-4/5 minmd:justify-center minmd:items-center minmd:mx-auto">
               <LandingPage />
               <Footer />
             </div>

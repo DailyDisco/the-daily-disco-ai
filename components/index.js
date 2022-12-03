@@ -27,6 +27,9 @@ import BlogAuthor from './BlogAuthor';
 // import BlogComments from './BlogComments';
 // import BlogCommentsForm from './BlogCommentsForm';
 import BlogPostDetail from './BlogPostDetail';
+import StableDiffusionCanvas from './StableDiffusionCanvas';
+import StableDiffusionPrompt from './StableDiffusionPrompt';
+import StableDiffusionDropzone from './StableDiffusionDropzone';
 
 export {
   Login,
@@ -50,4 +53,7 @@ export {
   // BlogComments,
   // BlogCommentsForm,
   BlogPostDetail,
+  StableDiffusionCanvas,
+  StableDiffusionPrompt,
+  StableDiffusionDropzone,
 };
