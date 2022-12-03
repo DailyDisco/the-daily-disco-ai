@@ -10,6 +10,8 @@ const nextConfig = {
       'cdn.sanity.io',
       'source.unsplash.com',
       'lh3.googleusercontent.com',
+      'replicate.com',
+      'replicate.delivery',
     ],
   },
 };
