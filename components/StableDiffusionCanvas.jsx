@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Image from 'next/image';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
@@ -23,6 +24,7 @@ export default class StableDiffusionCanvas extends React.Component {
 
   render() {
     const predictions = this.props.predictions.map((prediction) => {
+      // eslint-disable-next-line no-param-reassign
       prediction.lastImage = prediction.output
         ? prediction.output[prediction.output.length - 1]
         : null;
@@ -41,8 +43,8 @@ export default class StableDiffusionCanvas extends React.Component {
             .filter((prediction) => prediction.output)
             .map((prediction, index) => (
               <Image
-                alt={'prediction' + index}
-                key={'prediction' + index}
+                alt={`prediction${index}`}
+                key={`prediction${index}`}
                 layout="fill"
                 className="absolute animate-in fade-in"
                 style={{ zIndex: index }}

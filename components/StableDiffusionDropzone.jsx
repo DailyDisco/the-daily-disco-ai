@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable prefer-destructuring */
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 

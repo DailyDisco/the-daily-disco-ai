@@ -5,6 +5,7 @@ import { Footer, StableDiffusionPrompt } from '../components';
 import StableDiffusionCanvas from '../components/StableDiffusionCanvas';
 import StableDIffusionDropzone from '../components/StableDiffusionDropzone';
 
+// eslint-disable-next-line no-promise-executor-return
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function readAsDataURL(file) {

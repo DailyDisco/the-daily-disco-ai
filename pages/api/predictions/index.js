@@ -4,7 +4,7 @@ const addBackgroundToPNG = require('../../../lib/add-background-to-png');
 export default async function handler(req, res) {
   // remove null and undefined values
   req.body = Object.entries(req.body).reduce(
-    // eslint-disable-next-line no-return-assign
+    // eslint-disable-next-line no-return-assign, no-param-reassign
     (a, [k, v]) => (v == null ? a : ((a[k] = v), a)),
     {}
   );
