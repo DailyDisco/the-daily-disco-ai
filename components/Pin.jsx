@@ -145,21 +145,21 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         )}
       </div>
       <div className="flex mt-3 mb-3">
-        {/* <Link
-        href={`/user/user-profile/${postedBy?._id}`}
-        className="flex gap-2 mt-2 items-center"
-        passHref
-      > */}
-        <p className="font-semibold capitalize mr-3">Posted By:</p>
-        <img
-          className="w-8 h-8 rounded-full object-cover"
-          src={postedBy?.image}
-          alt="user-profile"
-        />
-        {/* <p className="font-semibold capitalize">
+        <Link
+          href={`/user/user-profile/${postedBy?._id}`}
+          className="flex gap-2 mt-2 items-center"
+          passHref
+        >
+          <p className="font-semibold capitalize mr-3">Posted By:</p>
+          <img
+            className="w-8 h-8 rounded-full object-cover"
+            src={postedBy?.image}
+            alt="user-profile"
+          />
+          {/* <p className="font-semibold capitalize">
         {postedBy?.userName.slice(0, 5)}
       </p> */}
-        {/* </Link> */}
+        </Link>
       </div>
     </div>
   );
