@@ -9,3 +9,7 @@ The services folder is used to store services that your app provides
 We are using index.js to provide the graphql graphcms service which provides the blog.
 
 However this is not a service that the app provides, so maybe switch this to the utils folder later.
+
+## Side Notes
+
+Whenever you see "String!" in the graphQL query, that means that the element has to be a string.

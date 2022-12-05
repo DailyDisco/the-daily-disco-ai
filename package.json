@@ -21,6 +21,7 @@
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "html-parser": "^0.11.0",
+    "html-react-parser": "^3.0.4",
     "lodash": "^4.17.21",
     "lucide-react": "^0.103.0",
     "moment": "^2.29.4",

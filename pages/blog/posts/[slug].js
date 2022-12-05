@@ -4,11 +4,11 @@ import { getPosts, getPostDetails } from '../../../services';
 
 import {
   BlogPostDetail,
-  //   BlogCategories,
-  BlogPostWidget,
+  // BlogCategories,
+  // BlogPostWidget,
   BlogAuthor,
-  //   BlogComments,
-  //   BlogCommentsForm,
+  BlogComments,
+  BlogCommentsForm,
 } from '../../../components';
 
 const BlogPostDetails = ({ post }) => {
@@ -19,16 +19,16 @@ const BlogPostDetails = ({ post }) => {
         <div className="col-span-1 lg:col-span-8">
           <BlogPostDetail post={post} />
           <BlogAuthor author={post.author} />
-          {/* <BlogCommentsForm slug={post.slug} />
-            <BlogComments slug={post.slug} /> */}
+          <BlogCommentsForm slug={post.slug} />
+          <BlogComments slug={post.slug} />
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
-              <BlogPostWidget
+              {/* <BlogPostWidget
                 className=""
                 slug={post.slug}
                 categories={post.categories.map((category) => category.slug)}
-              />
-              {/* <Categories /> */}
+              /> */}
+              {/* <BlogCategories /> */}
             </div>
           </div>
         </div>

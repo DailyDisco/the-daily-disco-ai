@@ -24,12 +24,13 @@ import PinDetail from './PinDetail';
 import BlogPostCard from './BlogPostCard';
 import BlogPostWidget from './BlogPostWidget';
 import BlogAuthor from './BlogAuthor';
-// import BlogComments from './BlogComments';
-// import BlogCommentsForm from './BlogCommentsForm';
+import BlogComments from './BlogComments';
+import BlogCommentsForm from './BlogCommentsForm';
 import BlogPostDetail from './BlogPostDetail';
 import StableDiffusionCanvas from './StableDiffusionCanvas';
 import StableDiffusionPrompt from './StableDiffusionPrompt';
 import StableDiffusionDropzone from './StableDiffusionDropzone';
+import StableDiffusionApp from './StableDiffusionApp';
 
 export {
   Login,
@@ -50,10 +51,11 @@ export {
   BlogPostCard,
   BlogPostWidget,
   BlogAuthor,
-  // BlogComments,
-  // BlogCommentsForm,
+  BlogComments,
+  BlogCommentsForm,
   BlogPostDetail,
   StableDiffusionCanvas,
   StableDiffusionPrompt,
   StableDiffusionDropzone,
+  StableDiffusionApp,
 };

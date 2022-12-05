@@ -20,7 +20,11 @@ Replicate inpainter: https://github.com/replicate/inpainter
 
 Tailwind CSS: https://tailwindcss.com/
 
+Hygraph: https://hygraph.com/
+
 ## Getting Started
+
+Set your environment variables and make sure you restart your terminal.
 
 Do "npm install"
 Run "npm run dev"
