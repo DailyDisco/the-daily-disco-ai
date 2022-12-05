@@ -40,11 +40,11 @@ const profile = () => {
       : localStorage.clear();
 
   useEffect(() => {
+    console.log('this is the useEffect to query the user');
     const query = userQuery(userInfo?.uid);
-    console.log('query', query);
+    // console.log('query', query);
     client.fetch(query).then((data) => {
       setUser(data[0]);
-      console.log('this is the useEffect on Profile for user', user);
     });
   }, [userId]);
 
@@ -54,9 +54,9 @@ const profile = () => {
       const createdPinsQuery = userCreatedPinsQuery(userAuth.uid);
 
       client.fetch(createdPinsQuery).then((data) => {
-        console.log('created pins', data);
+        // console.log('created pins', data);
         setPins(data);
-        console.log('post fetch data for saved pin', pins);
+        // console.log('post fetch data for saved pin', pins);
       });
     } else {
       const savedPinsQuery = userSavedPinsQuery(userAuth.uid);

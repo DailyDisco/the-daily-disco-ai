@@ -34,13 +34,13 @@ const usersProfile = () => {
     const query = userQuery(userProfile);
     client.fetch(query).then((data) => {
       setUser(data[0]);
-      console.log('data 0', data[0].userName);
+      // console.log('data 0', data[0].userName);
       setName(data[0].userName);
       setUserImage(data[0].image);
     });
   }, [userProfile]);
 
-  console.log('user', user);
+  // console.log('user', user);
 
   useEffect(() => {
     if (text === 'Created') {
@@ -56,7 +56,7 @@ const usersProfile = () => {
     }
   }, [text, userProfile]);
 
-  console.log('set pins', pins);
+  // console.log('set pins', pins);
 
   return (
     <div className="flex justify-center sm:px-4 p-12">

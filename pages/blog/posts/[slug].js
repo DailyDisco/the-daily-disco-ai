@@ -15,26 +15,26 @@ const BlogPostDetails = ({ post }) => {
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-3/5">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ml-5">
-          <div className="col-span-1 lg:col-span-8">
-            <BlogPostDetail post={post} />
-            <BlogAuthor author={post.author} />
-            {/* <BlogCommentsForm slug={post.slug} />
+        {/* <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ml-5"> */}
+        <div className="col-span-1 lg:col-span-8">
+          <BlogPostDetail post={post} />
+          <BlogAuthor author={post.author} />
+          {/* <BlogCommentsForm slug={post.slug} />
             <BlogComments slug={post.slug} /> */}
-            <div className="col-span-1 lg:col-span-4">
-              <div className="relative lg:sticky top-8">
-                <BlogPostWidget
-                  className=""
-                  slug={post.slug}
-                  categories={post.categories.map((category) => category.slug)}
-                />
-                {/* <Categories /> */}
-              </div>
+          <div className="col-span-1 lg:col-span-4">
+            <div className="relative lg:sticky top-8">
+              <BlogPostWidget
+                className=""
+                slug={post.slug}
+                categories={post.categories.map((category) => category.slug)}
+              />
+              {/* <Categories /> */}
             </div>
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 

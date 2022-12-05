@@ -64,7 +64,10 @@ const BlogPostDetail = ({ post }) => {
 
   return (
     <div className="dark:bg-nft-dark bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-      <div className="relative overflow-hidden shadow-md mb-6">
+      <h1 className="flex items-center justify-center mb-8 text-3xl font-semibold">
+        {post.title}
+      </h1>
+      <div className="relative overflow-hidden shadow-md mb-6 h-4/5 w-4/5 mx-auto">
         <img
           src={post.featuredImage.url}
           alt={post.title}
@@ -104,7 +107,7 @@ const BlogPostDetail = ({ post }) => {
             <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
           </div>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+        {/* <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1> */}
         {/* here we will map through the children of the post which include excerpt, body, author, etc... */}
         {/* console.log(post.content.raw) */}
         {post.content.raw.children.map((typeObj, index) => {

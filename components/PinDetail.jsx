@@ -38,7 +38,7 @@ const PinDetail = () => {
     console.log('pinId we need to query', pinId);
     console.log('pinId', pinId);
     const query = pinDetailQuery(pinId);
-    console.log('query', query);
+    // console.log('query', query);
     if (query) {
       client.fetch(`${query}`).then((data) => {
         console.log('post fetch data', data);

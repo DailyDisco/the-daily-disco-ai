@@ -28,7 +28,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
 
-  console.log(_id);
+  // console.log(_id);
 
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
