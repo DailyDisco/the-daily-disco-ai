@@ -22,22 +22,18 @@ const Home = () => {
         <title>The Daily Disco</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="flex justify-center sm:px-4 p-12">
-        <div>
-          {user ? (
-            <div>
-              <div className="w-full minmd:w-4/5 minmd:justify-center minmd:items-center minmd:mx-auto">
-                <Profile user={user} />
-              </div>
-              {/* <MobileDock /> */}
-            </div>
-          ) : (
-            <div className="w-full minmd:w-4/5 minmd:justify-center minmd:items-center minmd:mx-auto">
-              <LandingPage />
-              <Footer />
-            </div>
-          )}
-        </div>
+      <div className="flex justify-center items-center sm:px-4 p-12">
+        {user ? (
+          <div>
+            <Profile user={user} />
+            {/* <MobileDock /> */}
+          </div>
+        ) : (
+          <div>
+            <LandingPage />
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   );

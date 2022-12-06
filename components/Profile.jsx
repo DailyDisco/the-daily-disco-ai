@@ -72,33 +72,35 @@ const profile = () => {
   }
 
   return (
-    <div className="relative pb-2 h-full justify-center items-center">
-      <div className="flex flex-col pb-5">
-        <div className="relative flex flex-col mb-7">
-          <div className="flex flex-col justify-center items-center">
-            <img
-              src={randomImage}
-              className="w-full h-370 2xl:5-510 shadow-lg object-cover"
-              alt="banner picture"
-              // width={1600}
-              // height={900}
-            />
-            <img
-              className="rounded-full w-20 -mt-10 shadow-xl object-cover"
-              src={userAuth.photoURL}
-              alt="user profile picture"
-              // width={80}
-              // height={80}
-            />
-            <h1 className="font-bold text-3xl text-center mt-3">
-              <p>{userAuth.displayName}</p>
-            </h1>
-            <div className="absolute top-0 z-1 -right-5 p-2">
-              <Logout />
-            </div>
-          </div>
-          <div className="text-center mb-7">
-            {/* <button
+    <div className="flex justify-center items-center sm:px-4 p-12">
+      <div className="w-full minmd:w-4/5">
+        <div className="relative pb-2 h-full justify-center items-center">
+          <div className="flex flex-col pb-5">
+            <div className="relative flex flex-col mb-7">
+              <div className="flex flex-col justify-center items-center">
+                <img
+                  src={randomImage}
+                  className="w-full h-370 2xl:5-510 shadow-lg object-cover"
+                  alt="banner picture"
+                  // width={1600}
+                  // height={900}
+                />
+                <img
+                  className="rounded-full w-20 -mt-10 shadow-xl object-cover"
+                  src={userAuth.photoURL}
+                  alt="user profile picture"
+                  // width={80}
+                  // height={80}
+                />
+                <h1 className="font-bold text-3xl text-center mt-3">
+                  <p>{userAuth.displayName}</p>
+                </h1>
+                <div className="absolute top-0 z-1 -right-5 p-2">
+                  <Logout />
+                </div>
+              </div>
+              <div className="text-center mb-7">
+                {/* <button
               type="button"
               onClick={(e) => {
                 setText(e.target.textContent);
@@ -110,7 +112,7 @@ const profile = () => {
             >
               Created
             </button> */}
-            {/* <button
+                {/* <button
               type="button"
               onClick={(e) => {
                 setText(e.target.textContent);
@@ -122,16 +124,18 @@ const profile = () => {
             >
               Saved
             </button> */}
+              </div>
+              {pins?.length ? (
+                <div className="px-2">
+                  <MasonryLayout pins={pins} />
+                </div>
+              ) : (
+                <div className="flex justify-center font-bold items-center w-full text-xl mt-2">
+                  No images found!
+                </div>
+              )}
+            </div>
           </div>
-          {pins?.length ? (
-            <div className="px-2">
-              <MasonryLayout pins={pins} />
-            </div>
-          ) : (
-            <div className="flex justify-center font-bold items-center w-full text-xl mt-2">
-              No images found!
-            </div>
-          )}
         </div>
       </div>
     </div>
