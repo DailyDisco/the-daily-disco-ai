@@ -7,7 +7,7 @@ import Spinner from '../../components/Spinner';
 import { feedQuery, searchQuery } from '../../utils/data';
 
 const Feed = () => {
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [pins, setPins] = useState(null);
   // you can target the query string with the router
   const { categoryId } = useRouter().query;
@@ -15,20 +15,20 @@ const Feed = () => {
   // this is the query that will be sent to sanity
   // every time that the categoryId changes
   useEffect(() => {
-    setloading(true);
+    setLoading(true);
     if (categoryId) {
       console.log('categoryId', categoryId);
       const query = searchQuery(categoryId);
       client.fetch(query).then((data) => {
         setPins(data);
         console.log('data', data);
-        setloading(false);
+        setLoading(false);
         console.log('success');
       });
     } else {
       client.fetch(feedQuery).then((data) => {
         setPins(data);
-        setloading(false);
+        setLoading(false);
       });
     }
   }, [categoryId]);

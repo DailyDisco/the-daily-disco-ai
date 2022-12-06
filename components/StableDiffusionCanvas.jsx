@@ -1,9 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import Spinner from './Spinner';
-import StableDiffusionPrompt from './StableDiffusionPrompt';
 
 export default class StableDiffusionCanvas extends React.Component {
   constructor(props) {

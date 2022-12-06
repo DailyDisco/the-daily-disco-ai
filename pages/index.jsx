@@ -3,22 +3,20 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 // import { useState } from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import {
   Footer,
   LandingPage,
   // MobileDock,
   Profile,
-} from '../components'; // { Banner }
+} from '../components';
 
 const Home = () => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
-  const router = useRouter();
 
-  // <div className="flex justify-center items-center sm:px-4 p-12">
-  //   <div>{user ? router.push('/components/Profile') : null}</div>
-  // </div>;
+  // this will be the url name
+  const link = user ? `/user/user-profile/${user.uid}` : '/';
 
   return (
     <div>
@@ -27,17 +25,12 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="flex justify-center items-center sm:px-4 p-12">
-        {user ? (
-          <div>
-            <Profile user={user} />
-            {/* <MobileDock /> */}
-          </div>
-        ) : (
-          <div>
-            <LandingPage />
-            <Footer />
-          </div>
-        )}
+        {/* if there is a user load the profile component with the user info */}
+        {/* if there is no user load the LandingPage component and the Footer */}
+        <Link href="/" as={link}>
+          {user ? <Profile user={user} /> : <LandingPage />}
+          {!user && <Footer />}
+        </Link>
       </div>
     </div>
   );

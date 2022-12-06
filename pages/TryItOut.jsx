@@ -1,12 +1,9 @@
 /* eslint-disable no-await-in-loop */
 import { useState } from 'react';
 import { XCircle as StartOverIcon } from 'lucide-react';
-import { Footer, StableDiffusionPrompt } from '../components';
-import StableDiffusionCanvas from '../components/StableDiffusionCanvas';
-import StableDiffusionDropzone from '../components/StableDiffusionDropzone';
-import StableDiffusionApp from '../components/StableDiffusionApp';
+import { Footer, StableDiffusionApp } from '../components';
 
-const imgGenerator = () => {
+const ImgGenerator = () => {
   return (
     <div>
       <div className="flex justify-center sm:px-4 p-12">
@@ -19,4 +16,4 @@ const imgGenerator = () => {
   );
 };
 
-export default imgGenerator;
+export default ImgGenerator;

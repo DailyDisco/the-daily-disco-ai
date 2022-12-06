@@ -19,6 +19,7 @@ const logout = () => {
             localStorage.clear();
             console.log('local storage cleared');
             console.log('redirecting logged out user back to signed out home');
+            setTimeout(() => {}, 3000);
             router.push('/');
           })
           .catch((error) => {
