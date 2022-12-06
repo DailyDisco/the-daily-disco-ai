@@ -11,16 +11,8 @@ import { initFirebase } from '../firebase/firebaseApp';
 
 import images from '../assets';
 import Login from './Login';
-import Logout from './Logout';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
-  useEffect(() => {
-    const userInfo =
-      localStorage.getItem('user') !== 'undefined'
-        ? JSON.parse(localStorage.getItem('user'))
-        : localStorage.clear();
-  }, []);
-
   const generateLink = (i) => {
     switch (i) {
       case 0:
@@ -176,7 +168,7 @@ const navbar = () => {
               alt="close"
               onClick={() => setIsOpen(false)}
               // this next line is the toggle that we click to change it from light mode to dark mode
-              className={theme === 'light' && 'filter invert'}
+              className={theme === 'light' ? 'filter invert' : null}
             />
           ) : (
             <Image
@@ -187,7 +179,7 @@ const navbar = () => {
               alt="menu"
               onClick={() => setIsOpen(true)}
               // this next line is the toggle that we click to change it from light mode to dark mode
-              className={theme === 'light' && 'filter invert'}
+              className={theme === 'light' ? 'filter invert' : null}
             />
           )}
           {isOpen && (

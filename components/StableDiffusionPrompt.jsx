@@ -15,7 +15,6 @@ const samplePrompts = [
 const StableDiffusionPrompt = (props) => {
   const [prompt] = useState(sample(samplePrompts));
   const [image, setImage] = useState(null);
-  const [counter, setCounter] = useState(0);
 
   return (
     <form
