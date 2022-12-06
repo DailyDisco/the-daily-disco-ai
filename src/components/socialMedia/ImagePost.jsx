@@ -8,7 +8,6 @@ import { useRouter } from 'next/router';
 // import Image from 'next/image';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { AiTwotoneDelete } from 'react-icons/ai';
-import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 // uuidv4 is a utility function that comes with sanity that lets us look for the url of the image
 import { v4 as uuidv4 } from 'uuid';
 // url for is a utility function that comes with sanity that lets us look for th url of the image
@@ -28,42 +27,40 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
 
-  // console.log(_id);
-
   // if the user has already saved the post it will be filtered out of the array (feed)
   // the !! will help return boolean values so that it doesn't return undefined
   // eslint-disable-next-line no-unsafe-optional-chaining
-  // const alreadySaved = !!save?.filter((item) => item.postedBy._id === user.uid)
-  //   ?.length;
+  const alreadySaved = !!save?.filter((item) => item.postedBy._id === user.uid)
+    ?.length;
 
   // this is for users to save their favorite posts
-  // const savePin = (id) => {
-  //   if (!alreadySaved) {
-  //     setSavingPost(true);
-  //     client
-  //       .patch(id)
-  //       // patch the post with an id and add the user to the save array
-  //       .setIfMissing({ save: [] })
-  //       // insert a document into the array
-  //       .insert('after', 'save[-1]', [
-  //         {
-  //           // this will generate a unique id for the user
-  //           _key: uuidv4(),
-  //           userId: user.uid,
-  //           postedBy: {
-  //             _type: 'reference',
-  //             _ref: user.uid,
-  //           },
-  //         },
-  //       ])
-  //       .commit()
-  //       // do whatever else you want to do after the post has been saved
-  //       .then(() => {
-  //         window.location.reload();
-  //         setSavingPost(false);
-  //       });
-  //   }
-  // };
+  const savePin = (id) => {
+    if (!alreadySaved) {
+      setSavingPost(true);
+      client
+        .patch(id)
+        // patch the post with an id and add the user to the save array
+        .setIfMissing({ save: [] })
+        // insert a document into the array
+        .insert('after', 'save[-1]', [
+          {
+            // this will generate a unique id for the user
+            _key: uuidv4(),
+            userId: user.uid,
+            postedBy: {
+              _type: 'reference',
+              _ref: user.uid,
+            },
+          },
+        ])
+        .commit()
+        // do whatever else you want to do after the post has been saved
+        .then(() => {
+          window.location.reload();
+          setSavingPost(false);
+        });
+    }
+  };
 
   const deletePin = (id) => {
     client.delete(id).then(() => {
@@ -105,11 +102,11 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              {/* if the picture is already save */}
-              {/* {alreadySaved ? (
+              {/* if the picture is already save vs if the picture isn't saved */}
+              {alreadySaved ? (
                 <button
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
+                  className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
                 >
                   Saved
                 </button>
@@ -120,11 +117,11 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     savePin(_id);
                   }}
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
+                  className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
                 >
                   {savingPost ? 'Saving...' : 'Save'}
                 </button>
-              )} */}
+              )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
               {/* the next block is for deleting the pictures */}
@@ -144,13 +141,13 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           </div>
         )}
       </div>
-      <div className="flex mt-3 mb-3">
+      <div className="flex my-auto mx-auto justify-center items-center">
         <Link
           href={`/user/user-profile/${postedBy?._id}`}
           className="flex gap-2 mt-2 items-center"
           passHref
         >
-          <p className="font-semibold capitalize mr-3">Posted By:</p>
+          <p className="font-semibold capitalize">Posted By:</p>
           <img
             className="w-8 h-8 rounded-full object-cover"
             src={postedBy?.image}

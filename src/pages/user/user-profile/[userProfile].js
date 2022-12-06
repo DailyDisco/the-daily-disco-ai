@@ -15,10 +15,10 @@ const usersProfile = () => {
     'https://source.unsplash.com/1600x900/?nature,photography,technology';
 
   const activeBtnStyles =
-    'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
+    'bg-pink-500 text-white font-bold p-2 rounded-full w-20 outline-none';
 
   const notActiveBtnStyles =
-    'bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none';
+    'bg-primary mr-4 text-gray-500 font-bold p-2 rounded-full w-20 outline-none';
 
   const [activeBtn, setActiveBtn] = useState('created');
   const [user, setUser] = useState(null);
@@ -98,7 +98,7 @@ const usersProfile = () => {
                 >
                   Created
                 </button>
-                {/* <button
+                <button
                   type="button"
                   onClick={(e) => {
                     setText(e.target.textContent);
@@ -109,7 +109,7 @@ const usersProfile = () => {
                   }`}
                 >
                   Saved
-                </button> */}
+                </button>
               </div>
               {pins?.length ? (
                 <div className="px-2">

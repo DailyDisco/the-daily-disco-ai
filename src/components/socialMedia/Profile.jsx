@@ -23,9 +23,9 @@ const profile = () => {
   const randomImage =
     'https://source.unsplash.com/1600x900/?nature,photography,technology';
   const activeBtnStyles =
-    'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
+    'bg-pink-500 text-white font-bold p-2 rounded-full w-20 outline-none';
   const notActiveBtnStyles =
-    'bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none';
+    'bg-primary mr-4 text-gray-500 font-bold p-2 rounded-full w-20 outline-none';
   const [user, setUser] = useState(null);
   const [pins, setPins] = useState(null);
   const [text, setText] = useState('Created');
@@ -104,30 +104,32 @@ const profile = () => {
                 </div>
               </div>
               <div className="text-center mb-7">
-                {/* <button
-              type="button"
-              onClick={(e) => {
-                setText(e.target.textContent);
-                setActiveBtn('created');
-              }}
-              className={`${
-                activeBtn === 'created' ? activeBtnStyles : notActiveBtnStyles
-              }`}
-            >
-              Created
-            </button> */}
-                {/* <button
-              type="button"
-              onClick={(e) => {
-                setText(e.target.textContent);
-                setActiveBtn('saved');
-              }}
-              className={`${
-                activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles
-              }`}
-            >
-              Saved
-            </button> */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    setText(e.target.textContent);
+                    setActiveBtn('created');
+                  }}
+                  className={`${
+                    activeBtn === 'created'
+                      ? activeBtnStyles
+                      : notActiveBtnStyles
+                  }`}
+                >
+                  Created
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    setText(e.target.textContent);
+                    setActiveBtn('saved');
+                  }}
+                  className={`${
+                    activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles
+                  }`}
+                >
+                  Saved
+                </button>
               </div>
               {pins?.length ? (
                 <div className="px-2">
