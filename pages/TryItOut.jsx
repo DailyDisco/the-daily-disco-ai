@@ -6,20 +6,6 @@ import StableDiffusionCanvas from '../components/StableDiffusionCanvas';
 import StableDiffusionDropzone from '../components/StableDiffusionDropzone';
 import StableDiffusionApp from '../components/StableDiffusionApp';
 
-// eslint-disable-next-line no-promise-executor-return
-// const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-// function readAsDataURL(file) {
-//   return new Promise((resolve, reject) => {
-//     const fr = new FileReader();
-//     fr.onerror = reject;
-//     fr.onload = () => {
-//       resolve(fr.result);
-//     };
-//     fr.readAsDataURL(file);
-//   });
-// }
-
 const imgGenerator = () => {
   return (
     <div>

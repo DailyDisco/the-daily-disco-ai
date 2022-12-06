@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { BlogPostCard } from '../../components';
 // BlogPostWidget
 import { getPosts } from '../../services';
+// import styles from '../../styles/BlogHome.module.scss';
 
 // eslint-disable-next-line react/function-component-definition
 export default function BlogHome({ posts }) {

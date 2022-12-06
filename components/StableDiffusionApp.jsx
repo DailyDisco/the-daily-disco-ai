@@ -1,5 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import { useState } from 'react';
+import { getAuth } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import {
   Download as DownloadIcon,
   XCircle as StartOverIcon,
@@ -38,6 +40,9 @@ const StableDiffusionApp = () => {
   const [imageAsset, setImageAsset] = useState(null);
   // this is an error for the image
   const [wrongImageType, setWrongImageType] = useState(false);
+
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -178,28 +183,29 @@ const StableDiffusionApp = () => {
                   {/* <Download predictions={predictions} /> */}
                 </div>
               </div>
-
-              {/* this next block is to upload an image */}
-              <div className="mt-7">
-                <label>
-                  <div className="flex flex-col items-center justify-center h-full">
-                    <button type="button" onClick={uploadImage}>
-                      <div className="flex flex-col justify-center items-center">
-                        <p className="font-bold text-2xl">
-                          <AiOutlineCloudUpload />
-                        </p>
-                        <p className="text-lg">Click to upload</p>
-                      </div>
-                    </button>
-                  </div>
-                  {/* <input
+              {/* this next block is to upload a picture if the user is logged in */}
+              {user ? (
+                <div className="mt-7">
+                  <label>
+                    <div className="flex flex-col items-center justify-center h-full">
+                      <button type="button" onClick={uploadImage}>
+                        <div className="flex flex-col justify-center items-center">
+                          <p className="font-bold text-2xl">
+                            <AiOutlineCloudUpload />
+                          </p>
+                          <p className="text-lg">Click to upload</p>
+                        </div>
+                      </button>
+                    </div>
+                    {/* <input
                     type="file"
                     name="upload-image"
                     onChange={uploadImage}
                     className="w-0 h-0"
                   /> */}
-                </label>
-              </div>
+                  </label>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

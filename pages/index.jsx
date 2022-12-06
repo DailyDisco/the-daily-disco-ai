@@ -16,6 +16,10 @@ const Home = () => {
   const [user] = useAuthState(auth);
   const router = useRouter();
 
+  // <div className="flex justify-center items-center sm:px-4 p-12">
+  //   <div>{user ? router.push('/components/Profile') : null}</div>
+  // </div>;
+
   return (
     <div>
       <Head>

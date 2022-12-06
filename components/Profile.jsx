@@ -72,7 +72,7 @@ const profile = () => {
   }
 
   return (
-    <div className="flex justify-center items-center sm:px-4 p-12">
+    <div className="flex justify-center items-center sm:px-4 p-12 -mt-11">
       <div className="w-full minmd:w-4/5">
         <div className="relative pb-2 h-full justify-center items-center">
           <div className="flex flex-col pb-5">
