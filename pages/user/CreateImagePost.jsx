@@ -10,6 +10,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { categories } from '../../utils/data';
 import { client } from '../client';
 import Spinner from '../../components/Spinner';
+import StableDiffusionApp from '../../components/StableDiffusionApp';
 
 const CreateImagePost = () => {
   // title of the post
@@ -28,69 +29,69 @@ const CreateImagePost = () => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
 
-  const uploadImage = (e) => {
-    const { type, name } = e.target.files[0];
+  // const uploadImage = (e) => {
+  //   const { type, name } = e.target.files[0];
 
-    if (
-      type === 'image/png' ||
-      type === 'image/svg' ||
-      type === 'image/jpeg' ||
-      type === 'image/jpg' ||
-      type === 'image/gif'
-    ) {
-      setWrongImageType(false);
-      setLoading(true);
+  //   if (
+  //     type === 'image/png' ||
+  //     type === 'image/svg' ||
+  //     type === 'image/jpeg' ||
+  //     type === 'image/jpg' ||
+  //     type === 'image/gif'
+  //   ) {
+  //     setWrongImageType(false);
+  //     setLoading(true);
 
-      client.assets
-        .upload('image', e.target.files[0], {
-          contentType: type,
-          filename: name,
-        })
-        .then((document) => {
-          setImageAsset(document);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log('Image upload error ', error);
-        });
-    } else {
-      setWrongImageType(true);
-    }
-  };
+  //     client.assets
+  //       .upload('image', e.target.files[0], {
+  //         contentType: type,
+  //         filename: name,
+  //       })
+  //       .then((document) => {
+  //         setImageAsset(document);
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.log('Image upload error ', error);
+  //       });
+  //   } else {
+  //     setWrongImageType(true);
+  //   }
+  // };
 
-  const savePin = () => {
-    if (title && about && imageAsset?._id && category) {
-      const doc = {
-        _type: 'pin',
-        title,
-        about,
-        image: {
-          _type: 'image',
-          asset: {
-            _type: 'reference',
-            _ref: imageAsset?._id,
-          },
-        },
-        userId: user.uid,
-        postedBy: {
-          _type: 'postedBy',
-          _ref: user.uid,
-        },
-        category,
-      };
+  // const savePin = () => {
+  //   if (title && about && imageAsset?._id && category) {
+  //     const doc = {
+  //       _type: 'pin',
+  //       title,
+  //       about,
+  //       image: {
+  //         _type: 'image',
+  //         asset: {
+  //           _type: 'reference',
+  //           _ref: imageAsset?._id,
+  //         },
+  //       },
+  //       userId: user.uid,
+  //       postedBy: {
+  //         _type: 'postedBy',
+  //         _ref: user.uid,
+  //       },
+  //       category,
+  //     };
 
-      client.create(doc).then(() => {
-        console.log('Document created', doc);
-        router.push('/user/Feed');
-      });
-    } else {
-      setFields(true);
-      console.log('Please fill out all fields');
-      setTimeout(() => {
-        setFields(false);
-      }, 2000);
-    }
-  };
+  //     client.create(doc).then(() => {
+  //       console.log('Document created', doc);
+  //       router.push('/user/Feed');
+  //     });
+  //   } else {
+  //     setFields(true);
+  //     console.log('Please fill out all fields');
+  //     setTimeout(() => {
+  //       setFields(false);
+  //     }, 2000);
+  //   }
+  // };
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
@@ -101,16 +102,9 @@ const CreateImagePost = () => {
           </p>
         </div>
         <div>
-          <iframe
-            className="iframe"
-            title="stableDiffusion"
-            frameBorder="0"
-            width="100%"
-            height="640px"
-            src="https://inpainter.dailydisco.repl.co/paint?embed=true"
-          />
+          <StableDiffusionApp />
         </div>
-        <div className=" flex ml-12 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-3/5  w-full">
+        {/* <div className=" flex ml-12 lg:flex-row flex-col justify-center items-center dark:bg-nft-dark bg-white lg:p-5 p-3 lg:w-3/5  w-full">
           <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
             <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
               {loading && <Spinner />}
@@ -212,7 +206,7 @@ const CreateImagePost = () => {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
