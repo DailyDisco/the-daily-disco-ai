@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { initFirebase } from '../../firebase/firebaseApp';
 import { client } from '../../pages/client';
 
-const login = () => {
+const Login = () => {
   initFirebase();
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -74,4 +74,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

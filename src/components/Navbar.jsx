@@ -116,7 +116,7 @@ const navbar = () => {
                 </Link>
               </div>
               <div className="justify-center items-center mr-5 text-2xl">
-                <Link href="/user/Feed" passHref>
+                <Link href="/Feed" passHref>
                   <RiHomeHeartLine />
                 </Link>
               </div>

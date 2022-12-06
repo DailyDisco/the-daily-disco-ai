@@ -16,7 +16,7 @@ const Home = () => {
   const [user] = useAuthState(auth);
 
   // this will be the url name
-  const link = user ? `/user/user-profile/${user.uid}` : '/';
+  // const link = user ? `/user/user-profile/${user.uid}` : '/';
 
   return (
     <div>
@@ -27,10 +27,10 @@ const Home = () => {
       <div className="flex justify-center items-center sm:px-4 p-12">
         {/* if there is a user load the profile component with the user info */}
         {/* if there is no user load the LandingPage component and the Footer */}
-        <Link href="/" as={link}>
+        <div>
           {user ? <Profile user={user} /> : <LandingPage />}
           {!user && <Footer />}
-        </Link>
+        </div>
       </div>
     </div>
   );
