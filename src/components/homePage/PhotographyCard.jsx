@@ -1,7 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
-import images from '../../public/assets';
+import images from '../../../public/assets';
 
 const PhotographyCard = ({ stableDiffusion }) => (
   <div>

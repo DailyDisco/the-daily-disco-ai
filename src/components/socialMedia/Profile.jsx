@@ -8,15 +8,15 @@ import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
 // import Image from 'next/image';
-import MasonryLayout from './MasonryLayout';
+import MasonryLayout from './ImageLayout';
 // import Spinner from './Spinner';
 import {
   userQuery,
   userCreatedPinsQuery,
   userSavedPinsQuery,
-} from '../services/sanitySocialServices';
-import { client } from '../pages/client';
-import Logout from './auth/Logout';
+} from '../../services/sanitySocialServices';
+import { client } from '../../pages/client';
+import Logout from '../auth/Logout';
 
 const profile = () => {
   const randomImage =

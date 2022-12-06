@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 // url for is a utility function that comes with sanity that lets us look for th url of the image
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from 'firebase/auth';
-import { client, urlFor } from '../pages/client';
+import { client, urlFor } from '../../pages/client';
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   // states that activate when you hover over the image

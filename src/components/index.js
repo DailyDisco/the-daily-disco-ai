@@ -1,10 +1,10 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Banner from './Banner';
-import Spinner from './Spinner';
+import Banner from './common/Banner';
+import Spinner from './common/Spinner';
 
 // Email Subscription
-import Button from './Button';
+import Button from './common/Button';
 
 // Login & Logout
 import Login from './auth/Login';
@@ -12,12 +12,14 @@ import Logout from './auth/Logout';
 
 // Index, Social Media Profile, Feed, and info pages
 // import Feed from '../pages/user/Feed';
-import Pin from './Pin';
-import Profile from './Profile';
-import PhotographyCard from './PhotographyCard';
-import LandingPage from './LandingPage';
+import ImagePost from './socialMedia/ImagePost';
+import Profile from './socialMedia/Profile';
+import ImageDetail from './socialMedia/ImageDetail';
 // import CreateImagePost from '../pages/CreateImagePost';
-import PinDetail from './PinDetail';
+
+// Home Page exports
+import PhotographyCard from './homePage/PhotographyCard';
+import LandingPage from './homePage/LandingPage';
 
 // Graph CMS exports
 // import BlogCategories from './blog/BlogCategories';
@@ -44,11 +46,11 @@ export {
   // Feed,
   Banner,
   PhotographyCard,
-  Pin,
+  ImagePost,
   Profile,
   LandingPage,
   // CreateImagePost,
-  PinDetail,
+  ImageDetail,
   // BlogCategories,
   BlogPostCard,
   BlogPostWidget,

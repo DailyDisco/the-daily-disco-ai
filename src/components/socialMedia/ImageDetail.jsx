@@ -7,10 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { client, urlFor } from '../pages/client';
-import MasonryLayout from './MasonryLayout';
-import { pinDetailMorePinQuery, pinDetailQuery } from '../services/sanitySocialServices';
-import Spinner from './Spinner';
+import { client, urlFor } from '../../pages/client';
+import MasonryLayout from './ImageLayout';
+import {
+  pinDetailMorePinQuery,
+  pinDetailQuery,
+} from '../../services/sanitySocialServices';
+import Spinner from '../common/Spinner';
 
 const PinDetail = () => {
   // use router.query to get the id of the post

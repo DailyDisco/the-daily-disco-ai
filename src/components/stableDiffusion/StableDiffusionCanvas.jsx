@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/legacy/image';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
-import Spinner from '../Spinner';
+import Spinner from '../common/Spinner';
 
 export default class StableDiffusionCanvas extends React.Component {
   constructor(props) {

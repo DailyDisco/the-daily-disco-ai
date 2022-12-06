@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import MasonryLayout from '../../../components/MasonryLayout';
+import MasonryLayout from '../../../components/socialMedia/ImageLayout';
 import {
   userCreatedPinsQuery,
   userQuery,

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { categories } from '../../services/sanitySocialServices';
-import Spinner from '../../components/Spinner';
+import Spinner from '../../components/common/Spinner';
 import StableDiffusionApp from '../../components/stableDiffusion/StableDiffusionApp';
 
 const CreateImagePost = () => {
