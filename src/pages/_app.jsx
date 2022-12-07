@@ -12,10 +12,10 @@ const MyApp = ({ Component, pageProps }) => (
         <Component {...pageProps} />
       </main>
     </div>
-    {/* <Script
+    <Script
       src="https://kit.fontawesome.com/2437c99726.js"
       crossorigin="anonymous"
-    /> */}
+    />
   </ThemeProvider>
 );
 

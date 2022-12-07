@@ -96,7 +96,7 @@ const Profile = () => {
                     // width={80}
                     // height={80}
                   />
-                  <h1 className="font-bold text-3xl text-center mt-3">
+                  <h1 className="font-bold text-3xl text-center mt-3 mb-3">
                     <p>{userAuth.displayName}</p>
                   </h1>
                 </Link>
@@ -104,7 +104,7 @@ const Profile = () => {
                   <Logout />
                 </div>
               </div>
-              <div className="text-center mb-7">
+              <div className="text-center mb-11">
                 <button
                   type="button"
                   onClick={(e) => {
@@ -133,7 +133,7 @@ const Profile = () => {
                 </button>
               </div>
               {pins?.length ? (
-                <div>
+                <div className="mt-7">
                   <MasonryLayout pins={pins} />
                 </div>
               ) : (
