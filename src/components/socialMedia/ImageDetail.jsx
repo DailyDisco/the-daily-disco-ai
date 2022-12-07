@@ -105,9 +105,9 @@ const PinDetail = () => {
           className="flex xl:flex-row flex-col m-auto dark:bg-nft-dark bg-white mt-3"
           style={{ maxWidth: '1500px', borderRadius: '32px' }}
         >
-          <div className="flex justify-center items-center mt-5 mb-7 font-poppins font-semibold text-2xl scale-125">
+          {/* <div className="flex justify-center items-center mt-5 mb-7 font-poppins font-semibold text-2xl scale-125">
             {pinDetail.title}
-          </div>
+          </div> */}
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-t-3xl rounded-b-lg shadow-lg shadow-black hover:scale-150 transition-all duration-500 ease-in-out"
@@ -128,9 +128,9 @@ const PinDetail = () => {
               </div>
             </div>
             <div>
-              {/* <h1 className="text-4xl font-bold break-words mt-3">
+              <h1 className="text-4xl font-bold break-words mt-3">
                 {pinDetail.title}
-              </h1> */}
+              </h1>
               <p className="mt-3">{pinDetail.about}</p>
             </div>
             <div className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg ">
