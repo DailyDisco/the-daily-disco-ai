@@ -43,8 +43,8 @@ const Feed = () => {
 
   return (
     <div className="flex justify-center items-center sm:px-4 p-12 minmd:mx-auto">
-      <div className="w-full minmd:w-3/5">
-        <h3 className="flex justify-center items-center text-2xl font-bold mb-7">
+      <div className="w-full">
+        <h3 className="flex justify-center items-center text-2xl font-bold mb-11 -mt-7">
           Home Feed
         </h3>
         <div>{pins && <MasonryLayout pins={pins} />}</div>

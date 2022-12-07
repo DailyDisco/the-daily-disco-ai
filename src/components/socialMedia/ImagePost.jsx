@@ -21,6 +21,8 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   // states that activate when you save a post
   const [savingPost, setSavingPost] = useState(false);
 
+  const [saved, setSaved] = useState('');
+
   const router = useRouter();
 
   // this gives us the current user using a util function so that we don't have to repeat code
@@ -36,7 +38,6 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   // this is for users to save their favorite posts
   const savePin = (id) => {
     if (!alreadySaved) {
-      setSavingPost(true);
       client
         .patch(id)
         // patch the post with an id and add the user to the save array
@@ -56,11 +57,19 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         .commit()
         // do whatever else you want to do after the post has been saved
         .then(() => {
-          window.location.reload();
-          setSavingPost(false);
+          // window.location.reload();
+          setSaved(true);
+          setSavingPost(true);
+          // setSavingPost(false);
         });
     }
   };
+
+  useEffect(() => {
+    if (saved) {
+      // refresh the component without reloading the page
+    }
+  }, [saved]);
 
   const deletePin = (id) => {
     client.delete(id).then(() => {
@@ -69,94 +78,99 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   };
 
   return (
-    <div className="m-2">
-      <div
-        // this is what happens when you hover over a posted image
-        onMouseEnter={() => setPostHovered(true)}
-        onMouseLeave={() => setPostHovered(false)}
-        // this click handler will take you to the post page
-        onClick={() => router.push(`/user/pin-detail/${_id}`)}
-        className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
-      >
-        <img
-          className="rounded-lg w-full"
-          // width={250}
-          // height={250}
-          alt="user-post"
-          src={urlFor(image).width(250).url()}
-        />
-        {postHovered && (
-          <div
-            className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
-            style={{ height: '100%' }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex gap-2">
-                <a
-                  href={`${image?.asset?.url}?dl=`}
-                  download
-                  // this stops everything else from happening so that we can simply download the image
-                  onClick={(e) => e.stopPropagation()}
-                  className="dark:bg-black bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
-                >
-                  <MdDownloadForOffline />
-                </a>
-              </div>
-              {/* if the picture is already save vs if the picture isn't saved */}
-              {alreadySaved ? (
-                <button
-                  type="button"
-                  className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
-                >
-                  Saved
-                </button>
-              ) : (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    savePin(_id);
-                  }}
-                  type="button"
-                  className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
-                >
-                  {savingPost ? 'Saving...' : 'Save'}
-                </button>
-              )}
-            </div>
-            <div className="flex justify-between items-center gap-2 w-full">
-              {/* the next block is for deleting the pictures */}
-              {postedBy?._id === user.uid && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    deletePin(_id);
-                  }}
-                  className="dark:bg-black bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark text-base rounded-3xl hover:shadow-md outlined-none"
-                >
-                  <AiTwotoneDelete />
-                </button>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-      <div className="flex my-auto mx-auto justify-center items-center">
-        <Link
-          href={`/user/user-profile/${postedBy?._id}`}
-          className="flex gap-2 mt-2 items-center"
-          passHref
+    <div className="flex justify-center items-center sm:px-4 p-12 -mt-16">
+      <div className="w-full">
+        <div
+          // this is what happens when you hover over a posted image
+          onMouseEnter={() => setPostHovered(true)}
+          onMouseLeave={() => setPostHovered(false)}
+          // this click handler will take you to the post page
+          onClick={() => router.push(`/user/pin-detail/${_id}`)}
+          className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
         >
-          <p className="font-semibold capitalize">Posted By:</p>
           <img
-            className="w-8 h-8 rounded-full object-cover"
-            src={postedBy?.image}
-            alt="user-profile"
+            className="rounded-lg w-full"
+            // width={250}
+            // height={250}
+            alt="user-post"
+            src={urlFor(image).width(250).url()}
           />
-          {/* <p className="font-semibold capitalize">
+          {postHovered && (
+            <div
+              className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
+              style={{ height: '100%' }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex gap-2">
+                  <a
+                    href={`${image?.asset?.url}?dl=`}
+                    download
+                    // this stops everything else from happening so that we can simply download the image
+                    onClick={(e) => e.stopPropagation()}
+                    className="dark:bg-black bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
+                  >
+                    <MdDownloadForOffline />
+                  </a>
+                </div>
+                {/* if the picture is already save vs if the picture isn't saved */}
+                {alreadySaved ? (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    type="button"
+                    className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
+                  >
+                    Saved
+                  </button>
+                ) : (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      savePin(_id);
+                    }}
+                    type="button"
+                    className="bg-pink-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
+                  >
+                    {savingPost ? 'Saved' : 'Save'}
+                  </button>
+                )}
+              </div>
+              <div className="flex justify-between items-center gap-2 w-full">
+                {/* the next block is for deleting the pictures */}
+                {postedBy?._id === user.uid && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deletePin(_id);
+                    }}
+                    className="dark:bg-black bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark text-base rounded-3xl hover:shadow-md outlined-none"
+                  >
+                    <AiTwotoneDelete />
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="flex my-auto mx-auto justify-center items-center">
+          <Link
+            href={`/user/user-profile/${postedBy?._id}`}
+            className="flex gap-2 mt-2 items-center"
+            passHref
+          >
+            <p className="font-semibold capitalize">Created By:</p>
+            <img
+              className="w-8 h-8 rounded-full object-cover"
+              src={postedBy?.image}
+              alt="user-profile"
+            />
+            {/* <p className="font-semibold capitalize">
         {postedBy?.userName.slice(0, 5)}
       </p> */}
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );

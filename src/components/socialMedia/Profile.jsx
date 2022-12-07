@@ -19,7 +19,7 @@ import {
 import { client } from '../../pages/client';
 import Logout from '../auth/Logout';
 
-const profile = () => {
+const Profile = () => {
   const randomImage =
     'https://source.unsplash.com/1600x900/?nature,photography,technology';
   const activeBtnStyles =
@@ -67,14 +67,15 @@ const profile = () => {
     }
   }, [text, userId]);
 
-  if (!userAuth) {
-    router.push('/');
-    return <div>Please sign in to continue</div>;
-  }
+  useEffect(() => {
+    if (!userAuth) {
+      router.push('/');
+    }
+  }, [userAuth]);
 
   return (
-    <div className="flex justify-center items-center sm:px-4 p-12 -mt-11">
-      <div className="w-full minmd:w-3/5">
+    <div className="flex justify-center items-center sm:px-4 p-12 -mt-16">
+      <div className="w-full minmd:w-4/5">
         <div className="relative pb-2 h-full justify-center items-center">
           <div className="flex flex-col pb-5">
             <div className="relative flex flex-col mb-7">
@@ -132,7 +133,7 @@ const profile = () => {
                 </button>
               </div>
               {pins?.length ? (
-                <div className="px-2">
+                <div>
                   <MasonryLayout pins={pins} />
                 </div>
               ) : (
@@ -148,6 +149,6 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;
 
 // add server side props for firebase auth here

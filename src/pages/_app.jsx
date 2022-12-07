@@ -8,14 +8,14 @@ const MyApp = ({ Component, pageProps }) => (
     <div className="dark:bg-nft-dark bg-white min-h-screen">
       <Navbar />
       {/* this next line is to divide the navigation bar from the rest of the page */}
-      <div className="pt-65">
+      <main className="pt-65">
         <Component {...pageProps} />
-      </div>
+      </main>
     </div>
-    <Script
+    {/* <Script
       src="https://kit.fontawesome.com/2437c99726.js"
       crossorigin="anonymous"
-    />
+    /> */}
   </ThemeProvider>
 );
 

@@ -7,10 +7,10 @@ import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { getAuth } from 'firebase/auth';
 import { RiHomeHeartLine } from 'react-icons/ri';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { initFirebase } from '../firebase/firebaseApp';
+import { initFirebase } from '../../firebase/firebaseApp';
 
-import images from '../../public/assets';
-import Login from './auth/Login';
+import images from '../../../public/assets';
+import Login from '../auth/Login';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
