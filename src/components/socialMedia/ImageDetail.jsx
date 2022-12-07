@@ -102,15 +102,15 @@ const PinDetail = () => {
     <>
       {pinDetail && (
         <div
-          className="flex xl:flex-row flex-col m-auto dark:bg-nft-dark bg-white"
+          className="flex xl:flex-row flex-col m-auto dark:bg-nft-dark bg-white mt-3"
           style={{ maxWidth: '1500px', borderRadius: '32px' }}
         >
-          {/* <div className="flex justify-center items-center mt-5 mb-5 font-poppins font-semibold text-2xl">
+          <div className="flex justify-center items-center mt-5 mb-7 font-poppins font-semibold text-2xl scale-125">
             {pinDetail.title}
-          </div> */}
+          </div>
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
-              className="rounded-t-3xl rounded-b-lg"
+              className="rounded-t-3xl rounded-b-lg shadow-lg shadow-black hover:scale-150 transition-all duration-500 ease-in-out"
               src={pinDetail?.image && urlFor(pinDetail?.image).url()}
               alt="user-post"
             />
@@ -128,26 +128,26 @@ const PinDetail = () => {
               </div>
             </div>
             <div>
-              <h1 className="text-4xl font-bold break-words mt-3">
+              {/* <h1 className="text-4xl font-bold break-words mt-3">
                 {pinDetail.title}
-              </h1>
+              </h1> */}
               <p className="mt-3">{pinDetail.about}</p>
             </div>
             <div className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg ">
-              {/* <Link
-                href={`/user-profile/${pinDetail?.postedBy._id}`}
+              <Link
+                href={`/user/user-profile/${pinDetail?.postedBy._id}`}
                 className="flex gap-2 mt-5 items-center dark:bg-nft-dark bg-white rounded-lg "
-              > */}
-              Posted By:
-              <img
-                src={pinDetail?.postedBy.image}
-                className="w-10 h-10 rounded-full"
-                alt="user-profile"
-              />
-              {/* <p className="font-bold">
+              >
+                Posted By:
+                <img
+                  src={pinDetail?.postedBy.image}
+                  className="w-10 h-10 rounded-full"
+                  alt="user-profile"
+                />
+                {/* <p className="font-bold">
                 Posted by: {pinDetail?.postedBy.userName.slice(0, 5)}
               </p> */}
-              {/* </Link> */}
+              </Link>
             </div>
             <h2 className="mt-5 text-2xl">Comments</h2>
             <div className="max-h-370 overflow-y-auto">

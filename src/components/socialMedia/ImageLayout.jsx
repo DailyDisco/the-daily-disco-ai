@@ -3,11 +3,12 @@ import Pin from './ImagePost';
 
 const breakpointObj = {
   default: 3,
-  3000: 6,
-  2000: 5,
+  // 3000: 6,
+  // 2000: 5,
+  1500: 4,
   1200: 3,
   1000: 2,
-  500: 1,
+  // 500: 1,
 };
 
 const MasonryLayout = ({ pins }) => {

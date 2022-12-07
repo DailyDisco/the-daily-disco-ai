@@ -4,13 +4,12 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-quotes */
 import { getAuth, updateProfile } from 'firebase/auth'; // setPersistence
+import { VscSettingsGear } from 'react-icons/vsc';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react'; // useEffect
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useRouter } from 'next/router';
-// import Image from 'next/image';
 import MasonryLayout from './ImageLayout';
-// import Spinner from './Spinner';
 import {
   userQuery,
   userCreatedPinsQuery,
@@ -82,24 +81,27 @@ const Profile = () => {
               <div className="flex flex-col justify-center items-center">
                 <img
                   src={randomImage}
-                  className="w-full h-370 2xl:5-510 shadow-lg object-cover"
+                  className="w-full h-370 2xl:5-510 shadow-xl shadow-black object-cover"
                   alt="banner picture"
                   // width={1600}
                   // height={900}
                 />
+                <img
+                  className="rounded-full w-20 -mt-10 shadow-xl shadow-black object-cover mx-auto"
+                  src={userAuth.photoURL}
+                  alt="user profile picture"
+                  // onClick={() => {}}
+                  // width={80}
+                  // height={80}
+                />
                 <Link href="../../user/Settings">
-                  <img
-                    className="rounded-full w-20 -mt-10 shadow-xl object-cover mx-auto"
-                    src={userAuth.photoURL}
-                    alt="user profile picture"
-                    // onClick={() => {}}
-                    // width={80}
-                    // height={80}
-                  />
-                  <h1 className="font-bold text-3xl text-center mt-3 mb-3">
-                    <p>{userAuth.displayName}</p>
-                  </h1>
+                  <div>
+                    <VscSettingsGear className="text-4xl mt-3" />
+                  </div>
                 </Link>
+                <h1 className="font-bold text-3xl text-center mt-3 mb-3">
+                  <p>{userAuth.displayName}</p>
+                </h1>
                 <div className="absolute top-0 z-1 -right-5 p-2">
                   <Logout />
                 </div>

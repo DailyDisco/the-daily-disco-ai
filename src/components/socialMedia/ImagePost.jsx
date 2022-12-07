@@ -86,7 +86,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           onMouseLeave={() => setPostHovered(false)}
           // this click handler will take you to the post page
           onClick={() => router.push(`/user/pin-detail/${_id}`)}
-          className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+          className="relative cursor-zoom-in w-auto hover:shadow-xl hover:scale-125 rounded-lg overflow-hidden transition-all duration-500 ease-in-out shadow-xl shadow-black mt-3"
         >
           <img
             className="rounded-lg w-full"
@@ -154,21 +154,21 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
             </div>
           )}
         </div>
-        <div className="flex my-auto mx-auto justify-center items-center">
+        <div className="flex my-auto mx-auto justify-center items-center mt-7">
           <Link
             href={`/user/user-profile/${postedBy?._id}`}
-            className="flex gap-2 mt-2 items-center"
+            className="flex gap-2 items-center"
             passHref
           >
-            <p className="font-semibold capitalize">Created By:</p>
+            {/* <p className="font-semibold capitalize">Created By:</p> */}
             <img
-              className="w-8 h-8 rounded-full object-cover"
+              className="w-12 h-12 rounded-full shadow-lg shadow-fuchsia-400 object-cover hover:scale-125 transition-all duration-500 ease-in-out"
               src={postedBy?.image}
               alt="user-profile"
             />
             {/* <p className="font-semibold capitalize">
-        {postedBy?.userName.slice(0, 5)}
-      </p> */}
+              {postedBy?.userName.slice(0, 5)}
+            </p> */}
           </Link>
         </div>
       </div>
