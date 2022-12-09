@@ -110,7 +110,7 @@ const PinDetail = () => {
           </div> */}
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
-              className="rounded-t-3xl rounded-b-lg shadow-lg shadow-black hover:scale-150 transition-all duration-500 ease-in-out"
+              className="rounded-t-3xl rounded-b-lg shadow-lg shadow-black md:hover:scale-125 transition-all duration-500 ease-in-out"
               src={pinDetail?.image && urlFor(pinDetail?.image).url()}
               alt="user-post"
             />
