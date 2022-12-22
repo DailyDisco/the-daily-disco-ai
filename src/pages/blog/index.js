@@ -33,6 +33,7 @@ export default function BlogHome({ posts }) {
 }
 
 export async function getStaticProps() {
+  console.log('starting async export');
   const posts = (await getPosts()) || [];
   console.log(posts);
 
