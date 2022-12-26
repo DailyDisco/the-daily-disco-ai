@@ -73,7 +73,7 @@ const BlogPostDetail = ({ post }) => {
             src={obj.src}
           />
         );
-      case 'code':
+      case 'code-block':
         return (
           <code key={index} className="text-md font-semibold mb-4">
             {modifiedText.map((item, i) => (
