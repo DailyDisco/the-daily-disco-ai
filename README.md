@@ -12,6 +12,8 @@ For now you can login in with Google, I plan to add others, such as GitHub, in t
 
 I want to create an area for short story or poem writers to share stories based off their AI generated picture, read a great story and having it shared with an image is great.
 
+Sell AI image merchandise like mugs, shirts, etc.
+
 ## Tools used
 
 Next JS: https://nextjs.org/
