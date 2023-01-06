@@ -8,6 +8,9 @@ const BlogPostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
+    const sharedClasses = 'dark:text-white';
+    const bodyClasses = 'text-lg text-gray-700';
+
     if (obj) {
       if (obj.bold) {
         modifiedText = <b key={index}>{text}</b>;
@@ -73,13 +76,29 @@ const BlogPostDetail = ({ post }) => {
             src={obj.src}
           />
         );
-      case 'code-block':
+      case 'code':
         return (
-          <code key={index} className="text-md font-semibold mb-4">
+          <code
+            key={index}
+            // eslint-disable-next-line no-template-curly-in-string
+            className="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm ${sharedClasses}"
+          >
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </code>
+        );
+      case 'code-block':
+        return (
+          <pre
+            key={index}
+            // eslint-disable-next-line no-template-curly-in-string
+            className="bg-gray-100 dark:bg-gray-800 overflow-y-scroll rounded-md p-2 text-sm ${sharedClasses}"
+          >
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </pre>
         );
       default:
         return modifiedText;
