@@ -7,6 +7,7 @@ import { getPosts } from '../../services/graphQLServices';
 
 // eslint-disable-next-line react/function-component-definition
 export default function BlogHome({ posts }) {
+  // console.log('posts', posts);
   return (
     <div className="flex justify-center sm:px-4 p-12 minmd:mx-auto">
       <div className="w-full minmd:w-3/5">
